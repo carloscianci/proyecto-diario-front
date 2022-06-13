@@ -1,5 +1,7 @@
 .card_style_grande {
     width: 70vw ;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
     display: flex;
 
     box-shadow: 7px 11px 12px -2px rgba(0, 0, 0, 0.68);
