@@ -1,18 +1,26 @@
 const FormUser = () => {
   return(
     <>
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
-      </div>
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
-      </div>
-      <div class="mb-3">
-        <label for="contraseña" class="form-label">Contraseña: </label>
-        <input type="password" class="form-control" id="contraseña" placeholder="name@example.com" />
-      </div>
+      <section className="container d-flex justify-content-center">
+        <div className="d-flex container flex-column justify-content-center size">
+          <div className="item-registro">
+            <label for="nombreCompleto" className="form-label">Nombre: </label>
+            <input type="text" className="form-control" id="nombreCompleto" placeholder="" />
+          </div>
+          <div className="item-registro">
+            <label for="email" className="form-label">Email address: </label>
+            <input type="email" className="form-control" id="email" placeholder="name@example.com" />
+          </div>
+          <div className="item-registro">
+            <label for="contraseña" className="form-label">Contraseña: </label>
+            <input type="password" className="form-control" id="contraseña" placeholder="contraseña" />
+          </div>
+          <div className="item-registro">
+            <label for="contraseña" className="form-label">Confirmar contraseña: </label>
+            <input type="password" className="form-control" id="contraseña" placeholder="contraseña" />
+          </div>
+        </div>
+      </section>
     </>
   );
 }
