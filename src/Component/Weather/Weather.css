@@ -1,0 +1,20 @@
+.card-style{
+    display: flex;
+    color: rgb(0, 0, 0);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    justify-content: end;
+    margin: 1rem;
+}
+
+.card-img{
+    height: 7rem;
+}
+
+.card-temp{
+    font-size: 2rem;
+}
+
+.card-city{
+    font-size: 2rem;
+}
+
