@@ -1,0 +1,19 @@
+*{
+    height: 0px;
+    width: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+.size{
+    height: 100px;
+    width: 200px;
+}
+.item-registro{
+    padding: 10px;
+    height: 50px;
+    width: 100px;
+}
+.container{
+    height: 800px;
+    width: 100%;
+}
