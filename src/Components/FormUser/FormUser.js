@@ -1,5 +1,8 @@
+import React from 'react';
+import './formUser.css'
+
 const FormUser = () => {
-  return(
+  return (
     <>
       <section className="container d-flex justify-content-center">
         <div className="d-flex container flex-column justify-content-center size">
@@ -23,6 +26,6 @@ const FormUser = () => {
       </section>
     </>
   );
-}
+};
 
 export default FormUser;
