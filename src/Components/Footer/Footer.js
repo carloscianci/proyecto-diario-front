@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-sm-12 col-md-6" id="aboutUs">
-                        <h6>Sobre Nosotros</h6>
+                        <h6>Rolling Diario</h6>
                         <p className="text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa sed at sequi quos quae commodi accusamus! Quam consequatur magnam deleniti aspernatur minus eos eveniet ullam quasi! Veritatis quam placeat facilis!</p>
                     </div>
 
@@ -40,33 +40,6 @@ const Footer = () => {
                 </div>
                 <hr />
 
-                <div className="row">
-                    <div className="reloj-mobile col-12 col-md-6" id="fecha-hora"></div>
-                    <div className="col-md-4 col-sm-6 col-xs-12">
-                        <ul className="social-icons">
-                            <li>
-                                <a className="facebook" href="404.html">
-                                    <i className="bi bi-facebook"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a className="twitter" href="404.html">
-                                    <i className="bi bi-twitter"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a className="dribbble" href="404.html">
-                                    <i className="bi bi-instagram"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a className="linkedin" href="404.html">
-                                    <i className="bi bi-linkedin"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </footer>
     );
