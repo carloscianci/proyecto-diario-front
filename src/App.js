@@ -73,6 +73,8 @@ const App = () => {
           <CardLittle responsive_l='col-xl-4' title= {shows.titulo} text_p= {shows.texto}/>
           </div>
 
+          <Separator seccion= 'Espectaculos' />
+
           <div className="news_compi row justify-content-center">
           <CardMedium responsive_l='col-xl-4' title= {poli.titulo} text_p= {poli.texto} />
           <CardLittle responsive_l='col-xl-4' title= {poli.titulo} text_p= {poli.texto}/>
