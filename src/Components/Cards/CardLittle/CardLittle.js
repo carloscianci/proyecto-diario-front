@@ -4,7 +4,7 @@ import './CardLittle.css'
 
 const CardLittle = (props) => {
     return (
-        <div className= 'responsive_l card_style_little' id={props.id}>
+        <div className= 'card_style_little {props.responsive_l}' id={props.id}>
             <img className='card_img_little' src={props.img} alt='imagen' id='img.id'></img>
             <div>
                 <h3 className='card_titulo_little' id='titulo-id'>{props.title}</h3>
