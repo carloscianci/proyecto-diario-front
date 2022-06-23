@@ -1,7 +1,7 @@
 const FormUser = () => {
   return(
     <>
-      <section className="container d-flex justify-content-center">
+      <form className="container d-flex justify-content-center">
         <div className="d-flex container flex-column justify-content-center size">
           <div className="item-registro">
             <label for="nombreCompleto" className="form-label">Nombre/s: </label>
@@ -23,7 +23,7 @@ const FormUser = () => {
         <div>
           <button type="submit" class="btn btn-primary">Sign in</button>
         </div>
-      </section>
+      </form>
     </>
   );
 }

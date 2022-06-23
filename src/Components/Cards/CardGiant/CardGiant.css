@@ -1,5 +1,5 @@
 .card_style_giant {
-    width: 100% ;
+    width: 90% ;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     display: flex;
@@ -31,6 +31,7 @@
     
     width: 20rem;
     height: 2.5rem;
+    margin-top: 1rem;
     border-end-end-radius: 1rem;
     background-color: #00846f;
     color: white;
