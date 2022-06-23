@@ -1,6 +1,10 @@
 .separator_style{
-    width: 100%;
-    height: 2rem;
-    margin: 1rem 0 1rem 0;
-    background-color: #47B5FF;
+    margin-left: 10vw;
+}
+
+.text-separator{
+    font-size: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top:2rem;
+    text-align: start;
 }

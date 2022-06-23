@@ -1,5 +1,8 @@
+*{
+  margin: 1rem;
+}
+
 .news_compi{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: auto;
+  padding: auto;
 }
