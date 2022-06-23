@@ -1,12 +1,12 @@
-import axios from 'axios';
+import axios from "axios";
 import { useState, useEffect } from 'react';
 import React from 'react';
 import '../Weather/Weather.css'
 
 const Weather = () => {
 
-    const [weather, setWeather] = useState({})
-    const [temp, setTemp] = useState({})
+    const [weather, setWeather] = useState([])
+    const [temp, setTemp] = useState([])
     const [city, setCity] = useState([])
 
     const getWeather = async () => {

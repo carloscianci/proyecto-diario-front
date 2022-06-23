@@ -1,9 +1,8 @@
-.seccion-news{
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+*{
+  margin: 1rem;
 }
 
-.seccion-sports{
-  display: flex;
+.news_compi{
+  margin: auto;
+  padding: auto;
 }
