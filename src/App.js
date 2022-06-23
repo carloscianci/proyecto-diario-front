@@ -1,42 +1,76 @@
+import axios from 'axios';
+import { useState } from 'react';
+import { useEffect } from 'react';
 import './App.css';
-import img1 from './Assets/Img/Varias-pruebas/1.jpg'
 import React from 'react';
 import Weather from './Components/Weather/Weather';
+import NewsFP from './Components/NewsFP/NewsFP';
 import CardGiant from './Components/Cards/CardGiant/CardGrande';
-import CardMedium from './Components/Cards/CardMedium/CardMedium';
 import CardLittle from './Components/Cards/CardLittle/CardLittle';
-import Loguin from './Components/Loguin/Loguin';
+import CardMedium from './Components/Cards/CardMedium/CardMedium';
+import Separator from './Components/Separator/Separator';
 
 const App = () => {
+  const [newsFP, setNewsFP] = useState([])
+  const [economy, setEconomy] = useState([])
+  const [poli, setPoli] = useState([])
+
+
+  const getBack = async() => {
+      const  respApi = await axios.get('http://localhost:8000/noticia')
+
+      setNewsFP(respApi.data.listaNoticias[0])
+      setEconomy(respApi.data.listaNoticias[1])
+      setPoli(respApi.data.listaNoticias[2])
+    }
+    console.log(newsFP);
+
+  useEffect(() => {
+    getBack()
+}, [])
   return (
-    <>
+    
     <div>
         <Weather />
 
-        <Loguin />
+        <CardGiant seccion= {newsFP.titulo} text_p= {newsFP.texto} />
 
-         <CardGiant img= {img1} seccion= 'No lo entenderias!' text_p= 'Lorem Ipsum es simplemente un texto ficticio de la sssindustria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500,Lorem Ipsum es simplemente un texto ficticio de la industria deggggggggg la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500,Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500, ' />
-
-        <div className="seccion-news">
-         <CardLittle img= {img1} title= 'Espectaculos' text_p= 'Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500,' />
-
-         <CardLittle img= {img1} title= 'Espectasssssculos' text_p= 'Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500,' />
-
-         <CardLittle img= {img1} title= 'Espectaculos' text_p= 'Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500,' />
-        </div>
+        <Separator />
         
-        <div className="seccion-sports">
-         <CardMedium  img= {img1} seccion= 'Comedias' title='lo que nunca vimos' text_p= 'Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500,' />
+        <div className="">
 
-         <CardLittle img= {img1} title= 'Espectaculos' text_p= 'Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500,' />
-
-
-         <CardLittle img= {img1} title= 'Espectaculos' text_p= 'Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500,' />
+        <div className="news_compi">
+        <CardMedium title= {economy.titulo} text_p= {economy.texto} />
+        <CardLittle title= {economy.titulo} text_p= {economy.texto}/>
+        <CardLittle title= {economy.titulo} text_p= {economy.texto}/>
+        <CardLittle title= {economy.titulo} text_p= {economy.texto}/>
         </div>
+
+        <Separator />
+
+        <div className="news_compi">
+        <CardMedium title= {poli.titulo} text_p= {poli.texto} />
+        <CardLittle title= {poli.titulo} text_p= {poli.texto}/>
+        <CardLittle title= {poli.titulo} text_p= {poli.texto}/>
+        <CardLittle title= {poli.titulo} text_p= {poli.texto}/>
+        </div>
+
+        <Separator />
+
+
+        <div className="news_compi">
+        <CardMedium title= {poli.titulo} text_p= {poli.texto} />
+        <CardLittle title= {poli.titulo} text_p= {poli.texto}/>
+        <CardLittle title= {poli.titulo} text_p= {poli.texto}/>
+        <CardLittle title= {poli.titulo} text_p= {poli.texto}/>
+        </div>
+
+        </div>
+
+       
 
     </div>
 
-    </>
   );
 };
 

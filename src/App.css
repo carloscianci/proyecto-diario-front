@@ -1,9 +1,5 @@
-.seccion-news{
+.news_compi{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-}
-
-.seccion-sports{
-  display: flex;
 }
