@@ -4,7 +4,7 @@ import '../CardMedium/CardMedium.css'
 
 const CardMedium = (props) => {
     return (
-        <div className= 'card_style_medium' id={props.id}>
+        <div className= 'card_style_medium responsive_m' id={props.id}>
             <img className='card_img_medium' src={props.img} alt='imagen' id='img.id'></img>
             
             <div>

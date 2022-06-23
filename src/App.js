@@ -1,43 +1,96 @@
+import axios from 'axios';
+import { useState } from 'react';
+import { useEffect } from 'react';
 import './App.css';
-import img1 from './Assets/Img/Varias-pruebas/1.jpg'
 import React from 'react';
 import Weather from './Components/Weather/Weather';
 import CardGiant from './Components/Cards/CardGiant/CardGrande';
-// import CardMedium from './Components/Cards/CardMedium/CardMedium';
 import CardLittle from './Components/Cards/CardLittle/CardLittle';
-import Loguin from './Components/Loguin/Loguin';
+import CardMedium from './Components/Cards/CardMedium/CardMedium';
+import Separator from './Components/Separator/Separator';
+import Footer from './Components/Footer/Footer';
 
 const App = () => {
-  return(
-    <>
-      <div>
-        <Weather />
+  const [newsFP, setNewsFP] = useState([])
+  const [economy, setEconomy] = useState([])
+  const [poli, setPoli] = useState([])
+  const [shows, setShows] = useState([])
 
-        <Loguin />
 
-            <CardGiant img= {img1} seccion= 'No lo entenderias!' text_p= 'Lorem Ipsum es simplemente un texto ficticio de la sssindustria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500,Lorem Ipsum es simplemente un texto ficticio de la industria deggggggggg la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500,Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500, ' />
+  const getBack = async() => {
+      const  respApi = await axios.get('http://localhost:8000/noticia')
 
-          <div className="seccion-news">
-            <CardLittle img= {img1} title= 'Espectaculos' text_p= 'Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500,' />
+      setNewsFP(respApi.data.listaNoticias[0])
+      setEconomy(respApi.data.listaNoticias[1])
+      setPoli(respApi.data.listaNoticias[2])
+      setShows(respApi.data.listaNoticias[2])
+    }
+    console.log(newsFP);
 
-            <CardLittle img= {img1} title= 'Espectasssssculos' text_p= 'Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500,' />
+  useEffect(() => {
+    getBack()
+}, [])
 
-            <CardLittle img= {img1} title= 'Espectaculos' text_p= 'Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500,' />
+
+  return (
+    
+    <div className='container-fluid'>
+        <div className="responsive row">
+
+          <div className='col-12'>
+          <Weather />
           </div>
-          
-          <CardLittle img= {img1} title= 'Espectaculos' text_p= 'Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500,' />
 
-          <CardLittle img= {img1} title= 'Espectaculos' text_p= 'Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500,' />
+          <div className='col-12'>
+          <CardGiant seccion= {newsFP.titulo} text_p= {newsFP.texto} />
+          </div>+
 
-          <div className="seccion-news">
-            <CardLittle img= {img1} title= 'Espectaculos' text_p= 'Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500,' />
+          <Separator seccion= 'Politica'/>
+        
 
-            <CardLittle img= {img1} title= 'Espectaculos' text_p= 'Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500,' />
 
-            <CardLittle img= {img1} title= 'Espectaculos' text_p= 'Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500,' />
+          <div className="news_compi row justify-content-center">
+            <CardMedium title= {economy.titulo} text_p= {economy.texto} />
+            <CardLittle title= {economy.titulo} text_p= {economy.texto}/>
+            <CardLittle title= {economy.titulo} text_p= {economy.texto}/>
+            <CardLittle title= {economy.titulo} text_p= {economy.texto}/>
           </div>
-      </div>
-    </>
+
+          <Separator seccion= 'Economia' />
+
+          <div className="news_compi row justify-content-center">
+            <CardMedium title= {poli.titulo} text_p= {poli.texto} />
+            <CardLittle title= {poli.titulo} text_p= {poli.texto}/>
+            <CardLittle title= {poli.titulo} text_p= {poli.texto}/>
+            <CardLittle title= {economy.titulo} text_p= {economy.texto}/>
+          </div>
+
+          <Separator seccion= 'Policiales' />
+
+          <div className="news_compi row justify-content-center">
+          <CardMedium responsive_l='col-xl-4' title= {shows.titulo} text_p= {shows.texto} />
+          <CardLittle title= {shows.titulo} text_p= {shows.texto}/>
+          <CardLittle title= {shows.titulo} text_p= {shows.texto}/>
+          <CardLittle title= {shows.titulo} text_p= {shows.texto}/>
+          </div>
+
+          <Separator seccion= 'Espectaculos' />
+
+          <div className="news_compi row justify-content-center">
+          <CardMedium title= {poli.titulo} text_p= {poli.texto} />
+          <CardLittle title= {poli.titulo} text_p= {poli.texto}/>
+          <CardLittle title= {poli.titulo} text_p= {poli.texto}/>
+          <CardLittle title= {poli.titulo} text_p= {poli.texto}/>
+          </div>
+
+
+        
+        </div>
+
+       <Footer />
+
+    </div>
+
   );
 }
 
