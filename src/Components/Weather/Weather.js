@@ -5,8 +5,8 @@ import '../Weather/Weather.css'
 
 const Weather = () => {
 
-    const [weather, setWeather] = useState({weather})
-    const [temp, setTemp] = useState({temp})
+    const [weather, setWeather] = useState({})
+    const [temp, setTemp] = useState({})
     const [city, setCity] = useState([])
 
     const getWeather = async () => {
