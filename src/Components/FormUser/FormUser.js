@@ -4,26 +4,34 @@ import './formUser.css'
 const FormUser = () => {
   return (
     <>
-      <section className="container d-flex justify-content-center">
-        <div className="d-flex container flex-column justify-content-center size">
-          <div className="item-registro">
-            <label for="nombreCompleto" className="form-label">Nombre: </label>
-            <input type="text" className="form-control" id="nombreCompleto" placeholder="" />
+      <div className='d-flex flex-column justify-content-center align-items-center titulo titulo-1'><h2>¿Desea saber más sobre lo que pasa en el mundo?</h2></div>
+      <div className='d-flex flex-column justify-content-center align-items-center titulo titulo-2'><h2>Suscríbase y permanezca informado junto a nosotros!</h2></div>
+      <div className='d-flex flex-column justify-content-center align-items-center container'>
+        <form className='d-flex flex-column justify-content-center align-items-center form-container'>
+          <div className='d-flex justify-content-center'>
+            <div className='item-registro'>
+              <label for='nombreCompleto' className='form-label'>Nombre/s: </label>
+              <input type='text' className='form-control' id='nombreCompleto' placeholder='Nombre completo' />
+            </div>
+            <div className='item-registro'>
+              <label for='apellidoCompleto' className='form-label'>Apellido/s: </label>
+              <input type='text' className='form-control' id='apellidoCompleto' placeholder='Apellido completo' />
+            </div>
           </div>
-          <div className="item-registro">
-            <label for="email" className="form-label">Email address: </label>
-            <input type="email" className="form-control" id="email" placeholder="name@example.com" />
+          <div className='item-registro'>
+            <label for='email' className='form-label'>E-mail: </label>
+            <input type='email' className='form-control' id='email' placeholder='correoelectronico@example.com' />
           </div>
-          <div className="item-registro">
-            <label for="contraseña" className="form-label">Contraseña: </label>
-            <input type="password" className="form-control" id="contraseña" placeholder="contraseña" />
+          <div className='item-registro'>
+            <label for='numeroTel' className='form-label'>Celular: </label>
+            <input type='text' className='form-control' id='numeroTel' placeholder='N° de telefono' />
           </div>
-          <div className="item-registro">
-            <label for="contraseña" className="form-label">Confirmar contraseña: </label>
-            <input type="password" className="form-control" id="contraseña" placeholder="contraseña" />
+          <div>
+            <button type='submit' className='btn btn-primary boton-registro'>Suscribirse</button>
           </div>
-        </div>
-      </section>
+        </form>
+      </div>
+      
     </>
   );
 };
