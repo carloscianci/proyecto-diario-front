@@ -9,6 +9,7 @@ import CardLittle from './Components/Cards/CardLittle/CardLittle';
 import CardMedium from './Components/Cards/CardMedium/CardMedium';
 import Separator from './Components/Separator/Separator';
 import Footer from './Components/Footer/Footer';
+import FormUser from './Components/FormUser/FormUser';
 
 const App = () => {
   const [newsFP, setNewsFP] = useState([])
@@ -33,8 +34,7 @@ const App = () => {
 
 
   return (
-    
-    <div className='container-fluid'>
+      <div className='container-fluid'>
         <div className="responsive row">
 
           <div className='col-12'>
@@ -43,7 +43,7 @@ const App = () => {
 
           <div className='col-12'>
           <CardGiant seccion= {newsFP.titulo} text_p= {newsFP.texto} />
-          </div>+
+          </div>
 
           <Separator seccion= 'Politica'/>
         
@@ -86,11 +86,10 @@ const App = () => {
 
         
         </div>
-
+        <FormUser />
        <Footer />
-
+      
     </div>
-
   );
 }
 
