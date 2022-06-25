@@ -1,5 +1,7 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './CardGiant.css'
+
 
 const CardGiant = (props) => {
     return (
