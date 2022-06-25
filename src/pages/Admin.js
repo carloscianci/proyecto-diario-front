@@ -34,11 +34,32 @@ const Admin = () => {
           ...prevState,
           [name]: value
         }));
-        console.log(seleccionado)
-      }
+    }
+     
+    const traduceNoticia = (idtipo) => {
+        var nombreTraducido = ""
+        switch (idtipo) {
+            case 1:
+                nombreTraducido = "Política"
+                break;
+            case 2:
+                nombreTraducido = "Economía"
+                break;
+            case 3:
+                nombreTraducido = "Policiales"
+                break;
+            case 4:
+                nombreTraducido = "Espectáculo"
+                break;
+            case 5:
+                nombreTraducido = "Deportes"
+                break;
+            default:
+                break;
+        }
+        return nombreTraducido
+    }
 
-    console.log(modalEditar)
-    
     return (
         <div>
             <h1>ADMINISTRADOR DE NOTICIAS</h1>
@@ -59,13 +80,13 @@ const Admin = () => {
                         noticias.map(elemento =>( 
                             <tr>
                                 <td>{elemento._id}</td>
-                                <td>{elemento.idtiponoticia}</td>
+                                <td>{traduceNoticia(elemento.idtiponoticia)}</td>
                                 <td>{elemento.titulo}</td>
                                 <td>{elemento.resumen}</td>
                                 <td>{elemento.urlImagen}</td>
                                 <td>
                                     <button className="btn btn-primary mx-1 glyphicon glyphicon-pencil" onClick={()=>seleccionarNoticia(elemento, 'Editar')}>Editar</button>
-                                    <button className="btn btn-danger mx-1 glyphicon glyphicon-trash">Borrar</button>
+                                    <button className="btn btn-danger mx-1 glyphicon glyphicon-trash" onClick={()=>seleccionarNoticia(elemento, 'Eliminar')}>Borrar</button>
                                     {/* <button className="btn btn-info mx-1 glyphicon glyphicon-plus"></button> */}
                                     
                                 </td>
@@ -76,58 +97,62 @@ const Admin = () => {
             </table>
             
             <Modal isOpen={modalEditar}>
-            <ModalHeader>
-                <div>
-                    <h3>Editar noticia</h3>
-                </div>
-            </ModalHeader>
-            <ModalBody>
-                <div className="form-group">
-                    <label>ID</label>
-                    <input className="form-control" readOnly type="text" name="id"value={seleccionado && seleccionado._id}/>
-                    <br />
+                <ModalHeader>
+                    <div>
+                        <h3>Editar noticia</h3>
+                    </div>
+                </ModalHeader>
+                <ModalBody>
+                    <div className="form-group">
+                        <label>ID</label>
+                        <input className="form-control" readOnly type="text" name="id"value={seleccionado && seleccionado._id}/>
+                        <br />
 
-                    <label>Sección</label>
-                    <select class="form-select" aria-label="Seleccionar" value={seleccionado && seleccionado.idtiponoticia}>
-                        <option value="1">Política</option>
-                        <option value="2">Economía</option>
-                        <option value="3">Policiales</option>
-                        <option value="4">Espectáculo</option>
-                        <option value="5">Deportes</option>
-                    </select>   
-                    <br />
+                        <label>Sección</label>
+                        <select class="form-select" aria-label="Seleccionar" value={seleccionado && seleccionado.idtiponoticia}>
+                            <option value="1">Política</option>
+                            <option value="2">Economía</option>
+                            <option value="3">Policiales</option>
+                            <option value="4">Espectáculo</option>
+                            <option value="5">Deportes</option>
+                        </select>   
+                        <br />
 
-                    <label>Título</label>
-                    <input className="form-control" type="text" name="titulo" value={seleccionado && seleccionado.titulo}                    
-                    onChange={handleChange}
-                    />
-                    <br />
+                        <label>Título</label>
+                        <input className="form-control" type="text" name="titulo" value={seleccionado && seleccionado.titulo}                    
+                        onChange={handleChange}
+                        />
+                        <br />
 
-                    <label>Resumen</label>
-                    <textarea className="form-control" name="resumen" rows="3" value={seleccionado && seleccionado.resumen}
-                    />
-                    <br />
+                        <label>Resumen</label>
+                        <textarea className="form-control" name="resumen" rows="3" value={seleccionado && seleccionado.resumen}
+                        />
+                        <br />
 
-                    <label>URL Imagen</label>
-                    <input className="form-control" type="text" name="urlImagen" value={seleccionado && seleccionado.urlImagen}
-                    //onChange={handleChange}
-                    />
-                    <br />
-                </div>
-        </ModalBody>
-        <ModalFooter>
-          {/* <button className="btn btn-primary" onClick={()=>editar()}> */}
-          <button className="btn btn-primary">
-            Actualizar
-          </button>
-          <button
-            className="btn btn-danger"
-            onClick={()=>setModalEditar(false)}
-          >
-            Cancelar
-          </button>
-        </ModalFooter>
-      </Modal>
+                        <label>URL Imagen</label>
+                        <input className="form-control" type="text" name="urlImagen" value={seleccionado && seleccionado.urlImagen}
+                        //onChange={handleChange}
+                        />
+                        <br />
+                    </div>
+                </ModalBody>
+                <ModalFooter>
+                    {/* <button className="btn btn-primary" onClick={()=>editar()}> */}
+                    <button className="btn btn-primary">Actualizar</button>
+                    <button className="btn btn-danger" onClick={()=>setModalEditar(false)}>Cancelar</button>
+                </ModalFooter>
+            </Modal>
+
+            <Modal isOpen={modalEliminar}>
+                <ModalBody>
+                    Estás Seguro que deseas eliminar la noticia "{seleccionado && seleccionado.titulo}"? 
+                </ModalBody>
+                <ModalFooter>
+                    {/* <button className="btn btn-danger" onClick={()=>eliminar()}>Sí</button> */}
+                    <button className="btn btn-danger">Sí</button>
+                    <button className="btn btn-secondary" onClick={()=>setModalEliminar(false)}>No</button>
+                </ModalFooter>
+            </Modal>
 
         </div>
     )
