@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import React from 'react';
 import Weather from './Components/Weather/Weather';
