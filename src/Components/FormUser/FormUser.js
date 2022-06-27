@@ -7,7 +7,7 @@ const FormUser = () => {
     <>
       <div className='d-flex flex-column justify-content-center align-items-center titulo titulo-1'><h2>¿Desea saber más sobre lo que pasa en el mundo?</h2></div>
       <div className='d-flex flex-column justify-content-center align-items-center titulo titulo-2'><h2>Suscríbase y permanezca informado junto a nosotros!</h2></div>
-      <div className='d-flex flex-column justify-content-center align-items-center container'>
+      <div className='d-flex flex-column justify-content-center align-items-center container-formulario'>
         <form className='d-flex flex-column justify-content-center align-items-center form-container'>
           <div className='d-flex justify-content-center'>
             <div className='item-registro'>

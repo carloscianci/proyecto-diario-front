@@ -3,7 +3,6 @@
   color: black;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   padding: 2px 4px 2px 4px;
-  /* box-shadow: 7px 9px 10px -2px rgba(0, 0, 0, 0.68); */
   border: none;
 }
 .titulo-1{
@@ -12,7 +11,7 @@
 .titulo-2{
   border-radius: 0 0 6px 6px;
 }
-/* .container{
+/* .container-formulario{
   height: 300px;
   width: 100%;
   color: black;
