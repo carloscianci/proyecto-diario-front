@@ -4,6 +4,8 @@ import {Modal, ModalBody, ModalHeader, ModalFooter} from 'reactstrap';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import './adminNoticias.css'
+import NavbarAdmin from '../../Components/NavbarAdmin/NavbarAdmin';
+
 
 const AdminNoticias = () => {
     const [noticias, setNoticias] = useState([])
@@ -169,142 +171,146 @@ const AdminNoticias = () => {
     }
 
     return (
-        <div className='container-fluid'>
-            <h1>ADMINISTRADOR DE NOTICIAS</h1>
-            <button className='btn btn-success btnFixed bi bi-plus-lg' onClick={()=>abrirInsertar()}></button>
-            <table className='table'>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Sección</th>
-                        <th>Título</th>
-                        <th>Resumen</th>
-                        <th>URL Imagen</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        noticias.map(elemento =>( 
-                            <tr>
-                                <td>{elemento._id}</td>
-                                <td>{traduceNoticia(elemento.idtiponoticia)}</td>
-                                <td>{elemento.titulo}</td>
-                                <td>{elemento.resumen}</td>
-                                <td>{elemento.urlImagen}</td>
-                                <td>
-                                    <button className="btn btn-primary mx-1 bi bi-pencil" onClick={()=>seleccionarNoticia(elemento, 'Editar')}></button>
-                                    <button className="btn btn-danger mx-1 bi bi-trash" onClick={()=>seleccionarNoticia(elemento, 'Eliminar')}></button>
-                                </td>
-                            </tr>
-                        ))
-                    }
-                </tbody>
-            </table>
+        <>
+            <NavbarAdmin />
+            <div className='container-fluid'>
             
-            <Modal isOpen={modalEditar}>
-                <form onSubmit={() => editar()}>
-                    <ModalHeader>
+                <h1>ADMINISTRADOR DE NOTICIAS</h1>
+                <button className='btn btn-success btnFixed bi bi-plus-lg' onClick={()=>abrirInsertar()}></button>
+                <table className='table'>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Sección</th>
+                            <th>Título</th>
+                            <th>Resumen</th>
+                            <th>URL Imagen</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            noticias.map(elemento =>( 
+                                <tr>
+                                    <td>{elemento._id}</td>
+                                    <td>{traduceNoticia(elemento.idtiponoticia)}</td>
+                                    <td>{elemento.titulo}</td>
+                                    <td>{elemento.resumen}</td>
+                                    <td>{elemento.urlImagen}</td>
+                                    <td>
+                                        <button className="btn btn-primary mx-1 bi bi-pencil" onClick={()=>seleccionarNoticia(elemento, 'Editar')}></button>
+                                        <button className="btn btn-danger mx-1 bi bi-trash" onClick={()=>seleccionarNoticia(elemento, 'Eliminar')}></button>
+                                    </td>
+                                </tr>
+                            ))
+                        }
+                    </tbody>
+                </table>
+                
+                <Modal isOpen={modalEditar}>
+                    <form onSubmit={() => editar()}>
+                        <ModalHeader>
+                            <div>
+                                <h3>Editar noticia</h3>
+                            </div>
+                        </ModalHeader>
+                        <ModalBody>
+                            <div className="form-group">
+                                <label>ID</label>
+                                <input className="form-control" readOnly type="text" name="id" value={seleccionado && seleccionado._id}/>
+                                <br />
+
+                                <label>Sección</label>
+                                <select class="form-select" aria-label="Seleccionar" name="idtiponoticia" required onChange={handleChange}>
+                                    <option selected>{seleccionado && traduceNoticia(seleccionado.idtiponoticia)}</option>
+                                    <option value="1">Política</option>
+                                    <option value="2">Economía</option>
+                                    <option value="3">Policiales</option>
+                                    <option value="4">Espectáculo</option>
+                                    <option value="5">Deportes</option>
+                                </select>   
+                                <br />
+
+                                <label>Título</label> 
+                                <input className="form-control" type="text" name="titulo" required value={seleccionado && seleccionado.titulo}                    
+                                onChange={handleChange}
+                                />
+                                <br />
+
+                                <label>Resumen</label>
+                                <textarea className="form-control" name="resumen" rows="3" required value={seleccionado && seleccionado.resumen} 
+                                onChange={handleChange}
+                                />
+                                <br />
+
+                                <label>URL Imagen</label>
+                                <input className="form-control" type="text" name="urlImagen" required value={seleccionado && seleccionado.urlImagen}
+                                onChange={handleChange}
+                                />
+                                <br />
+                            </div>
+                        </ModalBody>
+                        <ModalFooter>
+                            <button className="btn btn-primary" type="submit">Actualizar</button>
+                            <button className="btn btn-danger" onClick={()=>setModalEditar(false)}>Cancelar</button>
+                        </ModalFooter>
+                    </form>
+                </Modal>
+
+                <Modal isOpen={modalEliminar}>
+                    <ModalBody>
+                        Estás Seguro que deseas eliminar la noticia "{seleccionado && seleccionado.titulo}"? 
+                    </ModalBody>
+                    <ModalFooter>
+                        <button className="btn btn-danger" onClick={()=>eliminar()}>Sí</button>
+                        <button className="btn btn-secondary" onClick={()=>setModalEliminar(false)}>No</button>
+                    </ModalFooter>
+                </Modal>
+
+                <Modal isOpen={modalInsertar}>
+                    <form onSubmit={()=>insertar()}>
+                        <ModalHeader>
                         <div>
-                            <h3>Editar noticia</h3>
+                            <h3>Agregar Noticia</h3>
                         </div>
-                    </ModalHeader>
-                    <ModalBody>
-                        <div className="form-group">
-                            <label>ID</label>
-                            <input className="form-control" readOnly type="text" name="id" value={seleccionado && seleccionado._id}/>
-                            <br />
+                        </ModalHeader>
+                        <ModalBody>
+                            <div className="form-group">
+                                <label>ID</label>
+                                <input className="form-control" readOnly type="text" name="id" value=""/>
+                                <br />
 
-                            <label>Sección</label>
-                            <select class="form-select" aria-label="Seleccionar" name="idtiponoticia" required onChange={handleChange}>
-                                <option selected>{seleccionado && traduceNoticia(seleccionado.idtiponoticia)}</option>
-                                <option value="1">Política</option>
-                                <option value="2">Economía</option>
-                                <option value="3">Policiales</option>
-                                <option value="4">Espectáculo</option>
-                                <option value="5">Deportes</option>
-                            </select>   
-                            <br />
+                                <label>Sección</label>
+                                <select class="form-select" aria-label="Seleccionar" name="idtiponoticia" required onChange={handleChange}>
+                                    <option value="1">Política</option>
+                                    <option value="2">Economía</option>
+                                    <option value="3">Policiales</option>
+                                    <option value="4">Espectáculo</option>
+                                    <option value="5">Deportes</option>
+                                </select>   
+                                <br />
 
-                            <label>Título</label> 
-                            <input className="form-control" type="text" name="titulo" required value={seleccionado && seleccionado.titulo}                    
-                            onChange={handleChange}
-                            />
-                            <br />
+                                <label>Título</label> 
+                                <input className="form-control" type="text" name="titulo" required value={seleccionado ? seleccionado.titulo : ''} onChange={handleChange}/>
+                                <br />
 
-                            <label>Resumen</label>
-                            <textarea className="form-control" name="resumen" rows="3" required value={seleccionado && seleccionado.resumen} 
-                            onChange={handleChange}
-                            />
-                            <br />
+                                <label>Resumen</label>
+                                <textarea className="form-control" name="resumen" rows="3" required value={seleccionado ? seleccionado.resumen : ''} onChange={handleChange}/>
+                                <br />
 
-                            <label>URL Imagen</label>
-                            <input className="form-control" type="text" name="urlImagen" required value={seleccionado && seleccionado.urlImagen}
-                            onChange={handleChange}
-                            />
-                            <br />
-                        </div>
-                    </ModalBody>
-                    <ModalFooter>
-                        <button className="btn btn-primary" type="submit">Actualizar</button>
-                        <button className="btn btn-danger" onClick={()=>setModalEditar(false)}>Cancelar</button>
-                    </ModalFooter>
-                </form>
-            </Modal>
-
-            <Modal isOpen={modalEliminar}>
-                <ModalBody>
-                    Estás Seguro que deseas eliminar la noticia "{seleccionado && seleccionado.titulo}"? 
-                </ModalBody>
-                <ModalFooter>
-                    <button className="btn btn-danger" onClick={()=>eliminar()}>Sí</button>
-                    <button className="btn btn-secondary" onClick={()=>setModalEliminar(false)}>No</button>
-                </ModalFooter>
-            </Modal>
-
-            <Modal isOpen={modalInsertar}>
-                <form onSubmit={()=>insertar()}>
-                    <ModalHeader>
-                    <div>
-                        <h3>Agregar Noticia</h3>
-                    </div>
-                    </ModalHeader>
-                    <ModalBody>
-                        <div className="form-group">
-                            <label>ID</label>
-                            <input className="form-control" readOnly type="text" name="id" value=""/>
-                            <br />
-
-                            <label>Sección</label>
-                            <select class="form-select" aria-label="Seleccionar" name="idtiponoticia" required onChange={handleChange}>
-                                <option value="1">Política</option>
-                                <option value="2">Economía</option>
-                                <option value="3">Policiales</option>
-                                <option value="4">Espectáculo</option>
-                                <option value="5">Deportes</option>
-                            </select>   
-                            <br />
-
-                            <label>Título</label> 
-                            <input className="form-control" type="text" name="titulo" required value={seleccionado ? seleccionado.titulo : ''} onChange={handleChange}/>
-                            <br />
-
-                            <label>Resumen</label>
-                            <textarea className="form-control" name="resumen" rows="3" required value={seleccionado ? seleccionado.resumen : ''} onChange={handleChange}/>
-                            <br />
-
-                            <label>URL Imagen</label>
-                            <input className="form-control" type="text" name="urlImagen" required value={seleccionado ? seleccionado.urlImagen : ''} onChange={handleChange}/>
-                            <br />
-                        </div>
-                    </ModalBody>
-                    <ModalFooter>
-                        <button className="btn btn-primary" type="submit">Insertar</button>
-                        <button className="btn btn-danger" onClick={()=>setModalInsertar(false)}>Cancelar</button>
-                    </ModalFooter>
-                </form>
-            </Modal>
-        </div>
+                                <label>URL Imagen</label>
+                                <input className="form-control" type="text" name="urlImagen" required value={seleccionado ? seleccionado.urlImagen : ''} onChange={handleChange}/>
+                                <br />
+                            </div>
+                        </ModalBody>
+                        <ModalFooter>
+                            <button className="btn btn-primary" type="submit">Insertar</button>
+                            <button className="btn btn-danger" onClick={()=>setModalInsertar(false)}>Cancelar</button>
+                        </ModalFooter>
+                    </form>
+                </Modal>
+            </div>
+        </>
     )
 }
 

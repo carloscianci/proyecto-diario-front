@@ -4,6 +4,7 @@ import {Modal, ModalBody, ModalHeader, ModalFooter} from 'reactstrap';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import './adminSuscripciones.css'
+import NavbarAdmin from '../../Components/NavbarAdmin/NavbarAdmin';
 
 const AdminSuscripciones = () => {
     const [suscripciones, setSuscripciones] = useState([])
@@ -115,95 +116,99 @@ const AdminSuscripciones = () => {
     }
 
     return (
-        <div className='container-fluid'>
-            <h1>ADMINISTRADOR DE SUSCRIPCIONES</h1>
+        <>
+            <NavbarAdmin />
 
-            <table className='table'>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Email</th>
-                        <th>Teléfono</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        suscripciones.map(elemento =>( 
-                            <tr>
-                                <td>{elemento._id}</td>
-                                <td>{elemento.nombre}</td>
-                                <td>{elemento.apellido}</td>
-                                <td>{elemento.email}</td>
-                                <td>{elemento.telefono}</td>
-                                <td>
-                                    <button className="btn btn-primary mx-1 bi bi-pencil" onClick={()=>seleccionarSuscripcion(elemento, 'Editar')}></button>
-                                    <button className="btn btn-danger mx-1 bi bi-trash" onClick={()=>seleccionarSuscripcion(elemento, 'Eliminar')}></button>
-                                </td>
-                            </tr>
-                        ))
-                    }
-                </tbody>
-            </table>
-            
-            <Modal isOpen={modalEditar}>
-                <form onSubmit={() => editar()}>
-                    <ModalHeader>
-                        <div>
-                            <h3>Editar suscripción</h3>
-                        </div>
-                    </ModalHeader>
+            <div className='container-fluid'>
+                <h1>ADMINISTRADOR DE SUSCRIPCIONES</h1>
+
+                <table className='table'>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Email</th>
+                            <th>Teléfono</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            suscripciones.map(elemento =>( 
+                                <tr>
+                                    <td>{elemento._id}</td>
+                                    <td>{elemento.nombre}</td>
+                                    <td>{elemento.apellido}</td>
+                                    <td>{elemento.email}</td>
+                                    <td>{elemento.telefono}</td>
+                                    <td>
+                                        <button className="btn btn-primary mx-1 bi bi-pencil" onClick={()=>seleccionarSuscripcion(elemento, 'Editar')}></button>
+                                        <button className="btn btn-danger mx-1 bi bi-trash" onClick={()=>seleccionarSuscripcion(elemento, 'Eliminar')}></button>
+                                    </td>
+                                </tr>
+                            ))
+                        }
+                    </tbody>
+                </table>
+                
+                <Modal isOpen={modalEditar}>
+                    <form onSubmit={() => editar()}>
+                        <ModalHeader>
+                            <div>
+                                <h3>Editar suscripción</h3>
+                            </div>
+                        </ModalHeader>
+                        <ModalBody>
+                            <div className="form-group">
+                                <label>ID</label>
+                                <input className="form-control" readOnly type="text" name="id" value={seleccionado && seleccionado._id}/>
+                                <br />
+                                
+                                <label>Nombre</label> 
+                                <input className="form-control" type="text" name="nombre" required value={seleccionado && seleccionado.nombre}                    
+                                onChange={handleChange}
+                                />
+                                <br />
+
+                                <label>Apellido</label>
+                                <input className="form-control" type="text" name="apellido" required value={seleccionado && seleccionado.apellido}                    
+                                onChange={handleChange}
+                                />
+                                <br />
+
+                                <label>Email</label>
+                                <input className="form-control" type="email" name="email" required value={seleccionado && seleccionado.email}                    
+                                onChange={handleChange}
+                                />
+                                <br />
+
+                                <label>Teléfono</label>
+                                <input className="form-control" type="text" name="telefono" required value={seleccionado && seleccionado.telefono}
+                                onChange={handleChange}
+                                />
+                                <br />
+                            </div>
+                        </ModalBody>
+                        <ModalFooter>
+                            <button className="btn btn-primary" type="submit">Actualizar</button>
+                            <button className="btn btn-danger" onClick={()=>setModalEditar(false)}>Cancelar</button>
+                        </ModalFooter>
+                    </form>
+                </Modal>
+
+                <Modal isOpen={modalEliminar}>
                     <ModalBody>
-                        <div className="form-group">
-                            <label>ID</label>
-                            <input className="form-control" readOnly type="text" name="id" value={seleccionado && seleccionado._id}/>
-                            <br />
-                            
-                            <label>Nombre</label> 
-                            <input className="form-control" type="text" name="nombre" required value={seleccionado && seleccionado.nombre}                    
-                            onChange={handleChange}
-                            />
-                            <br />
-
-                            <label>Apellido</label>
-                            <input className="form-control" type="text" name="apellido" required value={seleccionado && seleccionado.apellido}                    
-                            onChange={handleChange}
-                            />
-                            <br />
-
-                            <label>Email</label>
-                            <input className="form-control" type="email" name="email" required value={seleccionado && seleccionado.email}                    
-                            onChange={handleChange}
-                            />
-                            <br />
-
-                            <label>Teléfono</label>
-                            <input className="form-control" type="text" name="telefono" required value={seleccionado && seleccionado.telefono}
-                            onChange={handleChange}
-                            />
-                            <br />
-                        </div>
+                        Estás Seguro que deseas eliminar la suscripción de  "{seleccionado && seleccionado.nombre}"? 
                     </ModalBody>
                     <ModalFooter>
-                        <button className="btn btn-primary" type="submit">Actualizar</button>
-                        <button className="btn btn-danger" onClick={()=>setModalEditar(false)}>Cancelar</button>
+                        <button className="btn btn-danger" onClick={()=>eliminar()}>Sí</button>
+                        <button className="btn btn-secondary" onClick={()=>setModalEliminar(false)}>No</button>
                     </ModalFooter>
-                </form>
-            </Modal>
+                </Modal>
 
-            <Modal isOpen={modalEliminar}>
-                <ModalBody>
-                    Estás Seguro que deseas eliminar la suscripción de  "{seleccionado && seleccionado.nombre}"? 
-                </ModalBody>
-                <ModalFooter>
-                    <button className="btn btn-danger" onClick={()=>eliminar()}>Sí</button>
-                    <button className="btn btn-secondary" onClick={()=>setModalEliminar(false)}>No</button>
-                </ModalFooter>
-            </Modal>
-
-        </div>
+            </div>
+        </>
     )
 }
 
