@@ -5,7 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Admin from './pages/Admin';
+import AdminNoticias from './pages/AdminNoticias/AdminNoticias';
+import AdminSuscripciones from './pages/AdminSuscripciones/AdminSuscripciones';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,7 +14,8 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<App />}/>
-        <Route path='/Admin' element={<Admin />}/>
+        <Route path='/AdminNoticias' element={<AdminNoticias />}/>
+        <Route path='/AdminSuscrip' element={<AdminSuscripciones />}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
