@@ -32,7 +32,15 @@ const App = () => {
 
   useEffect(() => {
     getBack()
-}, [])
+  }, [])
+
+  // const setBack = async() => {
+  //   const resp = await axios.set('http://localhost:8000/suscripcion', {
+  //     method: 'POST'
+  //   })
+
+  //   setFormUser()
+  // }
 
 
   return (
