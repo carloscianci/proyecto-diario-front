@@ -18,7 +18,9 @@ const AdminNoticias = () => {
         titulo: "",
         resumen: "",
         texto: "",
-        urlImagen: ""
+        urlImagen: "",
+        destacada_seccion: 0,
+        destacada_diario: 0
     });
 
     ////// Borrar cuando esté listo el Login
@@ -54,11 +56,14 @@ const AdminNoticias = () => {
     }
 
     const handleChange=e=>{
-        const {name, value}=e.target;
+        const {name, value, checked}=e.target;
+        
         setSeleccionado((prevState)=>({
           ...prevState,
-          [name]: value
+          [name]: name==="destacada_seccion" || name==="destacada_diario" ? (checked ? 1 : 0) : value  
         }));
+
+        console.log(seleccionado)
     }
 
     const getToken = () => {
@@ -68,6 +73,7 @@ const AdminNoticias = () => {
 
     const editar = async() => {
         try {
+            console.log(seleccionado)
             const updateNoticia = await axios.put('http://localhost:8000/noticia',{
                 "idnoticia" : seleccionado._id,
                 "idtiponoticia" : seleccionado.idtiponoticia,
@@ -75,6 +81,8 @@ const AdminNoticias = () => {
                 "resumen" : seleccionado.resumen,
                 "texto" : "",
                 "urlImagen" : seleccionado.urlImagen,
+                "destacada_seccion" : seleccionado.destacada_seccion,
+                "destacada_diario" : seleccionado.destacada_diario,
                 "access_token" : getToken()
             })
     
@@ -89,6 +97,7 @@ const AdminNoticias = () => {
                 alert("ERROR!!! No se pudo actualizar la noticia.")    
             }
         } catch (error) {
+            alert("ERROR!!! .")    
             console.log(error)
         }
     }
@@ -128,6 +137,8 @@ const AdminNoticias = () => {
                 "resumen" : seleccionado.resumen,
                 "texto" : "",
                 "urlImagen" : seleccionado.urlImagen,
+                "destacada_seccion" : (seleccionado.destacada_seccion)?seleccionado.destacada_seccion:0,
+                "destacada_diario" : (seleccionado.destacada_diario)?seleccionado.destacada_diario:0,
                 "access_token" : getToken()
             })
     
@@ -185,6 +196,8 @@ const AdminNoticias = () => {
                             <th>Título</th>
                             <th>Resumen</th>
                             <th>URL Imagen</th>
+                            <th>Dest. Sección</th>
+                            <th>Dest. Diario</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -197,6 +210,8 @@ const AdminNoticias = () => {
                                     <td>{elemento.titulo}</td>
                                     <td>{elemento.resumen}</td>
                                     <td>{elemento.urlImagen}</td>
+                                    <td>{elemento.destacada_seccion === 1 ? "SI" : ""}</td>
+                                    <td>{elemento.destacada_diario  === 1 ? "SI" : ""}</td>
                                     <td>
                                         <button className="btn btn-primary mx-1 bi bi-pencil" onClick={()=>seleccionarNoticia(elemento, 'Editar')}></button>
                                         <button className="btn btn-danger mx-1 bi bi-trash" onClick={()=>seleccionarNoticia(elemento, 'Eliminar')}></button>
@@ -231,6 +246,18 @@ const AdminNoticias = () => {
                                 </select>   
                                 <br />
 
+                                <div className='d-flex row ms-1'>
+                                    <div className="form-check col-6">
+                                        <label className="form-check-label mx-1" for="idDestacadaSeccion">Destacada Sección </label>
+                                        <input className="form-check-input" type="checkbox" name="destacada_seccion" id="idDestacadaSeccion" checked={seleccionado && seleccionado.destacada_seccion===1} onChange={handleChange}/> 
+                                    </div>
+                                    <div className="form-check col-6">
+                                        <label className="form-check-label mx-1" for="idDestacadaDiario">Destacada Diario </label>
+                                        <input className="form-check-input" type="checkbox" name="destacada_diario" id="idDestacadaDiario" checked={seleccionado && seleccionado.destacada_diario===1} onChange={handleChange}/>
+                                    </div>
+                                </div>
+                                <br />
+
                                 <label>Título</label> 
                                 <input className="form-control" type="text" name="titulo" required value={seleccionado && seleccionado.titulo}                    
                                 onChange={handleChange}
@@ -238,7 +265,7 @@ const AdminNoticias = () => {
                                 <br />
 
                                 <label>Resumen</label>
-                                <textarea className="form-control" name="resumen" rows="3" required value={seleccionado && seleccionado.resumen} 
+                                <textarea className="form-control" name="resumen" rows="2" required value={seleccionado && seleccionado.resumen} 
                                 onChange={handleChange}
                                 />
                                 <br />
@@ -288,6 +315,18 @@ const AdminNoticias = () => {
                                     <option value="4">Espectáculo</option>
                                     <option value="5">Deportes</option>
                                 </select>   
+                                <br />
+
+                                <div className='d-flex row ms-1'>
+                                    <div className="form-check col-6">
+                                        <label className="form-check-label mx-1" for="idDestacadaSeccion">Destacada Sección </label>
+                                        <input className="form-check-input" type="checkbox" name="destacada_seccion" id="idDestacadaSeccion" checked={seleccionado ? seleccionado.destacada_seccion===1 : false} onChange={handleChange}/> 
+                                    </div>
+                                    <div className="form-check col-6">
+                                        <label className="form-check-label mx-1" for="idDestacadaDiario">Destacada Diario </label>
+                                        <input className="form-check-input" type="checkbox" name="destacada_diario" id="idDestacadaDiario" checked={seleccionado ? seleccionado.destacada_diario===1 : false} onChange={handleChange}/>
+                                    </div>
+                                </div>
                                 <br />
 
                                 <label>Título</label> 

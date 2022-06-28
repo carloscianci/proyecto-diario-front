@@ -10,25 +10,25 @@ import CardLittle from './Components/Cards/CardLittle/CardLittle';
 import CardMedium from './Components/Cards/CardMedium/CardMedium';
 import Separator from './Components/Separator/Separator';
 import Footer from './Components/Footer/Footer';
+import Login from './Components/Login/Login';
 
 
 
 const App = () => {
   const [newsFP, setNewsFP] = useState([])
-  const [economy, setEconomy] = useState([])
-  const [poli, setPoli] = useState([])
-  const [shows, setShows] = useState([])
+  // const [economy, setEconomy] = useState([])
+  // const [poli, setPoli] = useState([])
+  // const [shows, setShows] = useState([])
 
 
   const getBack = async() => {
       const  respApi = await axios.get('http://localhost:8000/noticia')
 
       setNewsFP(respApi.data.listaNoticias[0])
-      setEconomy(respApi.data.listaNoticias[1])
-      setPoli(respApi.data.listaNoticias[2])
-      setShows(respApi.data.listaNoticias[2])
+      // setEconomy(respApi.data.listaNoticias[1])
+      // setPoli(respApi.data.listaNoticias[2])
+      // setShows(respApi.data.listaNoticias[2])
     }
-    console.log(newsFP);
 
   useEffect(() => {
     getBack()
@@ -44,29 +44,30 @@ const App = () => {
 
 
   return (
-      <div className='container-fluid'>
+      <div className='container-fluid responsive_style'>
         <div className="responsive row">
 
           <div className='col-12'>
           <Weather />
           </div>
 
+          <Login /> 
+
           <div className='col-12'>
           <CardGiant seccion= {newsFP.titulo} text_p= {newsFP.texto} />
           </div>
 
           <Separator seccion= 'Politica'/>
-        
 
 
           <div className="news_compi row justify-content-center">
-            <CardMedium title= {economy.titulo} text_p= {economy.texto} />
-            <CardLittle title= {economy.titulo} text_p= {economy.texto}/>
-            <CardLittle title= {economy.titulo} text_p= {economy.texto}/>
-            <CardLittle title= {economy.titulo} text_p= {economy.texto}/>
+            <CardMedium seccion='tt' title= {newsFP.titulo} text_p= {newsFP.texto} />
+            <CardLittle title= {newsFP.titulo} text_p= {newsFP.texto}/>
+            <CardLittle title= {newsFP.titulo} text_p= {newsFP.texto}/>
+            <CardLittle title= {newsFP.titulo} text_p= {newsFP.texto}/>
           </div>
 
-          <Separator seccion= 'Economia' />
+          {/* <Separator seccion= 'Economia' />
 
           <div className="news_compi row justify-content-center">
             <CardMedium title= {poli.titulo} text_p= {poli.texto} />
@@ -91,12 +92,11 @@ const App = () => {
           <CardLittle title= {poli.titulo} text_p= {poli.texto}/>
           <CardLittle title= {poli.titulo} text_p= {poli.texto}/>
           <CardLittle title= {poli.titulo} text_p= {poli.texto}/>
-          </div>
+          </div> */}
 
 
         
         </div>
-        {/* <FormUser /> */}
        <Footer />
       
     </div>

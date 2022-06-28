@@ -6,3 +6,10 @@
   margin: auto;
   padding: auto;
 }
+
+@media screen and (max-width: 1024px){
+  .responsive_style{
+    display: flex;
+    
+  }
+}
