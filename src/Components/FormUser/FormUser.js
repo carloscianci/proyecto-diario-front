@@ -15,6 +15,19 @@ const FormUser = () => {
       "email" : dataForm.email,
       "celular" : dataForm.celular
     })
+    // if (resultsFU && resultsFU.dataForm.resultado) {
+    //   localStorage.setItem("nombre", resultsFU.dataForm.nombre)
+    // }
+    // if (resultsFU && resultsFU.dataForm.resultado) {
+    //   localStorage.setItem("apellido", resultsFU.dataForm.apellido)
+    // }
+    // if (resultsFU && resultsFU.dataForm.resultado) {
+    //   localStorage.setItem("email", resultsFU.dataForm.email)
+    // }
+    // if (resultsFU && resultsFU.dataForm.resultado) {
+    //   localStorage.setItem("celular", resultsFU.dataForm.celular)
+    // }
+    
     e.target.reset()
   }
 
