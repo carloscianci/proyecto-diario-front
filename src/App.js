@@ -11,6 +11,7 @@ import CardMedium from './Components/Cards/CardMedium/CardMedium';
 import Separator from './Components/Separator/Separator';
 import Footer from './Components/Footer/Footer';
 import Login from './Components/Login/Login';
+// import FormUser from './Components/FormUser/FormUser';
 
 
 
@@ -35,12 +36,15 @@ const App = () => {
   }, [])
 
   // const setBack = async() => {
-  //   const resp = await axios.set('http://localhost:8000/suscripcion', {
-  //     method: 'POST'
+  //   const resp = await axios.post('http://localhost:8000/suscripcion', {
+  //    "nombre" : dataForm.nombre,
+  //    "apellido" : dataForm.apellido,
+  //    "email" : dataForm.email,
+  //    "celular" : dataForm.celular 
   //   })
 
   //   setFormUser()
-  // }
+  // } 
 
 
   return (
@@ -97,6 +101,7 @@ const App = () => {
 
         
         </div>
+        {/* <FormUser /> */}
        <Footer />
       
     </div>
