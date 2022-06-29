@@ -9,20 +9,22 @@ import GetApiNoticias from './Components/GetApiNoticias/GetApiNoticias';
 
 const App = () => {
 
-
   return (
       <div className='container-fluid'>
         <div >
-
+        
           <div className='col-12'>
           <Weather />
           </div>
 
+
           <GetApiNoticias />
         
+
         
           <Footer />
         </div>
+
     </div>
   );
 }

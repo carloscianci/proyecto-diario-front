@@ -9,11 +9,14 @@ const CardMedium = (props) => {
             <img className='card_img_medium' src={props.img} alt='imagen' id='img.id'></img>
             
             <div>
-                <h5 className='card_seccion_medium' id='seccion-id'>{props.seccion}</h5>
+                <div>
+
+
                 <div>
                     <h3 className='card_title_medium'>{props.title}</h3>
                 </div>
                 <div className="text_min">
+
                 <p className= 'card_texto_medium' id='parrafo-id' >{props.text_p}</p>
                 </div>
             </div>

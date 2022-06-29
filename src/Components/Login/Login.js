@@ -1,34 +1,59 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Login.css'
-
+import './Login.css';
+import { useForm } from "react-hook-form";
+import axios from "axios";
 const Login = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm()
 
+    // const putAdmin = (data) => {
+    //     alert('putAdmin')
+    //     console.log(data);
+// }
 
-  const onSubmit = (data) => console.log(data);
+    const getLogin = async(data) => {
+        console.log(data);
+        const result = await axios.post('http://localhost:8000/usuario/login',{
+            "email" : data.email,
+            "clave" : data.clave
+            // body: JSON.stringify(data)
+            
+        })
+        if (result && result.data.resultado) {
+            localStorage.setItem("token", result.data.token)
+        }
+        
+        if (result && result.data.resultado) {
+            localStorage.setItem("Mensaje", result.data.message)
+        }
 
 
+        console.log(result);
+
+    }
+    
     return (
-        <form onSubmit={handleSubmit(onSubmit)} id="contenedor">
+        <form id="contenedor">
             
             <div id="contenedorcentrado">
                 <div id="login">
                     <form id="loginform">
                         <label for="usuario">Usuario</label>
-                        <input id="usuario" type="email" name="usuario" placeholder="Email" required {...register('email')}/>
+                        <input  type="email" placeholder="Email" required {...register("email", {
+                            // pattern:/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
+                        })}/>
+
+                        {errors.email?.type === 'minLength' && <small>El minimo de caracteres es de 4</small>}
                         
                         <label for="password">Contraseña</label>
-                        <input id="password" type="password" placeholder="Contraseña" name="password" required 
-                        {...register('password')} />
+                        <input type="password" placeholder="Contraseña" required 
+                        {...register("clave",{
+                            // pattern:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm
+                        })} />
 
-                        {errors.password && <span>{errors.password.message}</span>}
-                        
-                        <button type="submit" title="Ingresar" name="Ingresar">Login</button>
+                        <button onClick={handleSubmit(getLogin)} title="Ingresar" name="Ingresar">Login</button>
 
-                        {/*  */}
                     </form>
                     
                 </div>

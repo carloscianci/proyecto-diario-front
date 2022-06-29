@@ -10,7 +10,6 @@ const AdminSuscripciones = () => {
     const [suscripciones, setSuscripciones] = useState([])
     const [modalEditar, setModalEditar] = useState(false)
     const [modalEliminar, setModalEliminar] = useState(false)
-    const [modalInsertar, setModalInsertar] = useState(false)
     const [seleccionado, setSeleccionado] = useState({
         _id: "",
         nombre: "",

@@ -12,7 +12,9 @@ const CardLittle = (props) => {
                 <div>
                 <h3 className='card_titulo_little' id='titulo-id'>{props.title}</h3>
                 </div>
+
                 <div className="text_min">
+
                 <p className= 'card_texto_little' id='parrafo-id' >{props.text_p}</p>
                 </div>
             </div>
