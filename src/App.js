@@ -1,109 +1,29 @@
-import axios from 'axios';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import React from 'react';
 import Weather from './Components/Weather/Weather';
-import CardGiant from './Components/Cards/CardGiant/CardGrande';
-import CardLittle from './Components/Cards/CardLittle/CardLittle';
-import CardMedium from './Components/Cards/CardMedium/CardMedium';
-import Separator from './Components/Separator/Separator';
 import Footer from './Components/Footer/Footer';
-import Login from './Components/Login/Login';
-// import FormUser from './Components/FormUser/FormUser';
-
+import GetApiNoticias from './Components/GetApiNoticias/GetApiNoticias';
+import FormUser from './Components/FormUser/FormUser';
 
 
 const App = () => {
-  const [newsFP, setNewsFP] = useState([])
-  // const [economy, setEconomy] = useState([])
-  // const [poli, setPoli] = useState([])
-  // const [shows, setShows] = useState([])
-
-
-  const getBack = async() => {
-      const  respApi = await axios.get('http://localhost:8000/noticia')
-
-      setNewsFP(respApi.data.listaNoticias[0])
-      // setEconomy(respApi.data.listaNoticias[1])
-      // setPoli(respApi.data.listaNoticias[2])
-      // setShows(respApi.data.listaNoticias[2])
-    }
-
-  useEffect(() => {
-    getBack()
-  }, [])
-
-  // const setBack = async() => {
-  //   const resp = await axios.post('http://localhost:8000/suscripcion', {
-  //    "nombre" : dataForm.nombre,
-  //    "apellido" : dataForm.apellido,
-  //    "email" : dataForm.email,
-  //    "celular" : dataForm.celular 
-  //   })
-
-  //   setFormUser()
-  // } 
-
 
   return (
-      <div className='container-fluid responsive_style'>
-        <div className="responsive row">
-
+      <div className='container-fluid'>
+        <div >
+        
           <div className='col-12'>
           <Weather />
           </div>
 
-          <Login /> 
 
-          <div className='col-12'>
-          <CardGiant seccion= {newsFP.titulo} text_p= {newsFP.texto} />
-          </div>
-
-          <Separator seccion= 'Politica'/>
-
-
-          <div className="news_compi row justify-content-center">
-            <CardMedium seccion='tt' title= {newsFP.titulo} text_p= {newsFP.texto} />
-            <CardLittle title= {newsFP.titulo} text_p= {newsFP.texto}/>
-            <CardLittle title= {newsFP.titulo} text_p= {newsFP.texto}/>
-            <CardLittle title= {newsFP.titulo} text_p= {newsFP.texto}/>
-          </div>
-
-          {/* <Separator seccion= 'Economia' />
-
-          <div className="news_compi row justify-content-center">
-            <CardMedium title= {poli.titulo} text_p= {poli.texto} />
-            <CardLittle title= {poli.titulo} text_p= {poli.texto}/>
-            <CardLittle title= {poli.titulo} text_p= {poli.texto}/>
-            <CardLittle title= {economy.titulo} text_p= {economy.texto}/>
-          </div>
-
-          <Separator seccion= 'Policiales' />
-
-          <div className="news_compi row justify-content-center">
-          <CardMedium responsive_l='col-xl-4' title= {shows.titulo} text_p= {shows.texto} />
-          <CardLittle title= {shows.titulo} text_p= {shows.texto}/>
-          <CardLittle title= {shows.titulo} text_p= {shows.texto}/>
-          <CardLittle title= {shows.titulo} text_p= {shows.texto}/>
-          </div>
-
-          <Separator seccion= 'Espectaculos' />
-
-          <div className="news_compi row justify-content-center">
-          <CardMedium title= {poli.titulo} text_p= {poli.texto} />
-          <CardLittle title= {poli.titulo} text_p= {poli.texto}/>
-          <CardLittle title= {poli.titulo} text_p= {poli.texto}/>
-          <CardLittle title= {poli.titulo} text_p= {poli.texto}/>
-          </div> */}
-
-
+          <GetApiNoticias />
         
+
+          <FormUser />
+          <Footer />
         </div>
-        {/* <FormUser /> */}
-       <Footer />
-      
     </div>
   );
 }
