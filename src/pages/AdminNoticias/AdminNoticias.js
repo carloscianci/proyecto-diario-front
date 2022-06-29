@@ -184,8 +184,8 @@ const AdminNoticias = () => {
     return (
         <>
             <NavbarAdmin />
+               
             <div className='container-fluid'>
-            
                 <h1>ADMINISTRADOR DE NOTICIAS</h1>
                 <button className='btn btn-success btnFixed bi bi-plus-lg' onClick={()=>abrirInsertar()}></button>
                 <table className='table'>
