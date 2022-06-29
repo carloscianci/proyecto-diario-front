@@ -10,9 +10,6 @@ const CardMedium = (props) => {
             
             <div>
                 <div>
-
-
-                <div>
                     <h3 className='card_title_medium'>{props.title}</h3>
                 </div>
                 <div className="text_min">
