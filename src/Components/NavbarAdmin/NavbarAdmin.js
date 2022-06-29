@@ -12,13 +12,13 @@ const NavbarAdmin = () => {
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className="nav-item active">
-                        <a className="nav-link" href="/adminNoticias">Noticias </a>
+                        <a className="nav-link" href="adminNoticias">Noticias </a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="adminSuscrip">Suscripciones </a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/#">Usuarios </a>
+                        <a className="nav-link" href="adminUsuarios">Usuarios </a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="/#">Salir</a>
