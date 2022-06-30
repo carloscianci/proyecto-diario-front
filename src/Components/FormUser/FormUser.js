@@ -19,6 +19,7 @@ const FormUser = () => {
     if(resultsFU && resultsFU.data.resultado){
       alert('Se ha registrado con exito.')
     }else{
+      
       alert(resultsFU.data.message)
     }
   }
