@@ -9,24 +9,24 @@ const FormUser = () => {
   const { register, handleSubmit } = useForm()
 
   const postFormUser = async(dataForm, e) => {
-    const resultsFU = await axios.post('http://localhost:8000/usuario/login',{
+    const resultsFU = await axios.post('http://localhost:8000/suscripcion',{
       "nombre" : dataForm.nombre,
       "apellido" : dataForm.apellido,
       "email" : dataForm.email,
       "celular" : dataForm.celular
     })
-    // if (resultsFU && resultsFU.dataForm.resultado) {
-    //   localStorage.setItem("nombre", resultsFU.dataForm.nombre)
-    // }
-    // if (resultsFU && resultsFU.dataForm.resultado) {
-    //   localStorage.setItem("apellido", resultsFU.dataForm.apellido)
-    // }
-    // if (resultsFU && resultsFU.dataForm.resultado) {
-    //   localStorage.setItem("email", resultsFU.dataForm.email)
-    // }
-    // if (resultsFU && resultsFU.dataForm.resultado) {
-    //   localStorage.setItem("celular", resultsFU.dataForm.celular)
-    // }
+    if (resultsFU && resultsFU.dataForm.resultado) {
+      localStorage.setItem("nombre", resultsFU.dataForm.nombre)
+    }
+    if (resultsFU && resultsFU.dataForm.resultado) {
+      localStorage.setItem("apellido", resultsFU.dataForm.apellido)
+    }
+    if (resultsFU && resultsFU.dataForm.resultado) {
+      localStorage.setItem("email", resultsFU.dataForm.email)
+    }
+    if (resultsFU && resultsFU.dataForm.resultado) {
+      localStorage.setItem("celular", resultsFU.dataForm.celular)
+    }
     
     e.target.reset()
   }
