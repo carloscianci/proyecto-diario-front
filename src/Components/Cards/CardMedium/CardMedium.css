@@ -1,14 +1,13 @@
 .card_style_medium {
-    width: 25rem;
+    margin: 1%;
+    padding: 5px;
+    width: 20rem;
     height: 25rem;
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-    margin: 1rem;
+    border-radius: 5px;
 
     box-shadow: 7px 11px 12px -2px rgba(0, 0, 0, 0.68);
     -webkit-box-shadow: 7px 11px 12px -2px rgba(0, 0, 0, 0.68);
     -moz-box-shadow: 7px 11px 12px -2px rgba(0, 0, 0, 0.68);
-    text-align: justify;
 
     background-color: #06283D;
 
@@ -17,32 +16,27 @@
 }
 
 .card_img_medium {
-    width: 100%;
-    height: 100%;
-    margin: .5rem;
+    width: 17.5rem;
+    height: 10rem;
+    margin: 1rem;
     border-radius: 5px;
+    justify-content: center;
 }
 
-.card_seccion_medium {
+
+.card_title_medium{
     font-family: 'Times New Roman', Times, serif;
-    font-size: 1.5rem;
-    padding-left: 5px;
-    margin-top: 0;
-    margin-bottom: 0;
+    font-size: 100%;
+    text-align: start;
+
+    padding: 5px;
     width: 100%;
 
     border-radius: 5px;
     background-color: #1363DF;
     color: white;
-    text-justify: auto;
+    text-align: center  ;
     align-items: center;
-    
-}
-
-.card_title_medium{
-    color: white;
-    font-size: 1.2rem;
-    margin: 1rem 1rem 1rem 1rem;
 }
 
 .text_min{
@@ -55,7 +49,36 @@
 
 
 .card_texto_medium {
-    color: white;
     font-size: 1rem;
-    margin: 1rem;
+    text-align: center;
+    margin-top: .5rem;
+    height: auto;
+    color: white;
+}
+
+@media (max-width: 280px){
+    .card_style_medium {
+        margin: 1%;
+        padding: 5px;
+        width: 14rem;
+        height: 25rem;
+        border-radius: 5px;
+    
+        box-shadow: 7px 11px 12px -2px rgba(0, 0, 0, 0.68);
+        -webkit-box-shadow: 7px 11px 12px -2px rgba(0, 0, 0, 0.68);
+        -moz-box-shadow: 7px 11px 12px -2px rgba(0, 0, 0, 0.68);
+    
+        background-color: #06283D;
+    
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card_img_medium {
+        width: 10rem;
+        height: 10rem;
+        margin: 1rem;
+        border-radius: 5px;
+        justify-content: center;
+    }
 }
