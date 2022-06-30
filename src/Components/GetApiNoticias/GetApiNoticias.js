@@ -13,29 +13,20 @@ const GetApiNoticias = () => {
     // const [news, setNews] = useState([])
     // const [newsF, setNewsF] = useState([])
     const [sports, setSports] = useState([])
-    // const [eocnomy, setEconomy] = useState([])
-    // const [espect, setEspect] = useState([])
-    // const [politica, setPolitica] = useState([])
-    
-      
-  // Filtrado de noticias
-
-          // const Filtro = newsF.map(info => info.idtiponoticia[0])
-  
-          
-            // const filterSports = Filtro.filter(n => n === 5)
+    const [economy, setEconomy] = useState([])
+    const [espect, setEspect] = useState([])
+    const [politica, setPolitica] = useState([])
   
   
     const getBack = async() => {
         const  respApi = await axios.get('http://localhost:8000/noticia')
 
-        // setNews(respApi.data)
-        // setNewsF(respApi.data.listaNoticias)
+        
         setSports(respApi.data.listaNoticias)
-        // setEconomy(respApi.data.listaNoticias)
-        // setEspect(respApi.data.listaNoticias)
+        setEconomy(respApi.data.listaNoticias)
+        setEspect(respApi.data.listaNoticias)
+        setPolitica(respApi.data.listaNoticias)
         // setPoli(respApi.data.listaNoticias)
-        // setPolitica(respApi.data.listaNoticias)
 
       }
   
@@ -75,47 +66,71 @@ const GetApiNoticias = () => {
       <div className='container-fluid'>
         <div className="row">
 
-          <CardGiant />
+        {
+                economy.filter(n => n.destacada_diario === 1).map(data => <CardGiant  seccion={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
+              }
 
           <div className="pag_news_style">
 
+              {/* DEPORTES */}
+
               <Separator seccion= 'Deportes'/>
             <div className=" scroll-container d-flex justify-content-start">
-              <CardMedium seccion='Lo mas importante del deporte'/>
+                {
+                  economy.filter(n => n.destacada_diario === 1).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
+                }
                 {
                   sports.sort(orderNews).filter(n => n.idtiponoticia === 5).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
                 }
             </div >
 
+                {/* POLITICA */}
+
               <Separator seccion= 'Politica'/>
             <div className="scroll-container d-flex justify-content-start">
-              <CardMedium />
+
               {
-                sports.sort(orderNews).filter(n => n.idtiponoticia === 3).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
+                politica.filter(n => n.destacada_diario === 1).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
+              }
+              
+              {
+                politica.sort(orderNews).filter(n => n.idtiponoticia === 3).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
               }
             </div>
-
+                
+                {/* ECONOMIA */}
               <Separator seccion= 'Economía'/>
             <div className="scroll-container d-flex justify-content-start">
-              <CardMedium />
               {
-                sports.sort(orderNews).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
+                economy.filter(n => n.destacada_diario === 1).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
+              }
+
+              {
+                economy.sort(orderNews).filter(n => n.idtiponoticia === 2).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
               }
             </div>
 
+              {/* POLICIALES */}
               <Separator seccion= 'Policiales'/>
             <div className="scroll-container d-flex justify-content-start">
-              <CardMedium />
+
+              {
+                economy.filter(n => n.destacada_diario === 1).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
+              }
+
               {
                 sports.sort(orderNews).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
               }
             </div>
-
+              {/* ESPECTACULOS */}
               <Separator seccion= 'Espectaculos'/>
             <div className="scroll-container d-flex justify-content-start">
-              <CardMedium />
               {
-                sports.sort(orderNews).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
+                economy.filter(n => n.destacada_diario === 1).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
+              }
+
+              {
+                espect.sort(orderNews).filter(n => n.idtiponoticia === 4).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
               }
             </div>
 
