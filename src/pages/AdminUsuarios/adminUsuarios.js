@@ -6,8 +6,8 @@ import { useState, useEffect } from 'react';
 import './adminUsuarios.css'
 import NavbarAdmin from '../../Components/NavbarAdmin/NavbarAdmin';
 
-
 const AdminUsuarios = () => {
+
     const [usuarios, setUsuarios] = useState([])
     const [modalEditar, setModalEditar] = useState(false)
     const [modalEliminar, setModalEliminar] = useState(false)
@@ -192,41 +192,43 @@ const AdminUsuarios = () => {
                 </table>
                 
                 <Modal isOpen={modalEditar}>
-                    <ModalHeader>
-                        <div>
-                            <h3>Editar Usuario</h3>
-                        </div>
-                    </ModalHeader>
-                    <ModalBody>
-                        <div className="form-group">
-                            <label>ID</label>
-                            <input className="form-control" readOnly type="text" name="id" value={seleccionado && seleccionado._id}/>
-                            <br />
+                    <form onSubmit={() => editar()}>
+                        <ModalHeader>
+                            <div>
+                                <h3>Editar Usuario</h3>
+                            </div>
+                        </ModalHeader>
+                        <ModalBody>
+                            <div className="form-group">
+                                <label>ID</label>
+                                <input className="form-control" readOnly type="text" name="id" value={seleccionado && seleccionado._id}/>
+                                <br />
 
-                            <label>Nombre</label> 
-                            <input className="form-control" type="text" name="nombre" required value={seleccionado && seleccionado.nombre}                    
-                            onChange={handleChange}/>
-                            <br />
+                                <label>Nombre</label> 
+                                <input className="form-control" type="text" name="nombre" readOnly={seleccionado && seleccionado.principal===1} required value={seleccionado && seleccionado.nombre}                    
+                                onChange={handleChange}/>
+                                <br />
 
-                            <label>Email</label>
-                            <input className="form-control" type="text" name="email" required value={seleccionado && seleccionado.email}                    
-                            onChange={handleChange}/>
-                            <br />
+                                <label>Email</label>
+                                <input className="form-control" type="email" name="email" readOnly={seleccionado && seleccionado.principal===1} required value={seleccionado && seleccionado.email}                    
+                                onChange={handleChange}/>
+                                <br />
 
-                            <label>Contraseña</label>
-                            <input className="form-control" type="password" name="clave1" required value={seleccionado && seleccionado.clave1}
-                            onChange={handleChange}/>
-                            <br />
+                                <label>Contraseña</label>
+                                <input className="form-control" type="password" name="clave1" required value={seleccionado && seleccionado.clave1}
+                                onChange={handleChange}/>
+                                <br />
 
-                            <label>Repetir Contraseña</label>
-                            <input className="form-control" type="password" name="clave2" required value={seleccionado && seleccionado.clave2}
-                            onChange={handleChange}/>
-                        </div>
-                    </ModalBody>
-                    <ModalFooter>
-                        <button className="btn btn-primary" onClick={()=>editar()}>Actualizar</button>
-                        <button className="btn btn-danger" onClick={()=>setModalEditar(false)}>Cancelar</button>
-                    </ModalFooter>
+                                <label>Repetir Contraseña</label>
+                                <input className="form-control" type="password" name="clave2" required value={seleccionado && seleccionado.clave2}
+                                onChange={handleChange}/>
+                            </div>
+                        </ModalBody>
+                        <ModalFooter>
+                            <button className="btn btn-primary" type="submit">Actualizar</button>
+                            <button className="btn btn-danger" onClick={()=>setModalEditar(false)}>Cancelar</button>
+                        </ModalFooter>
+                    </form>
                 </Modal>
 
                 <Modal isOpen={modalEliminar}>
@@ -240,42 +242,44 @@ const AdminUsuarios = () => {
                 </Modal>
 
                 <Modal isOpen={modalInsertar}>
-                    <ModalHeader>
-                    <div>
-                        <h3>Agregar Usuario</h3>
-                    </div>
-                    </ModalHeader>
-                    <ModalBody>
-                        <div className="form-group">
-                            <label>ID</label>
-                            <input className="form-control" readOnly type="text" name="id" value=""/>
-                            <br />
-
-                            <label>Nombre</label> 
-                            <input className="form-control" type="text" name="nombre" required value={seleccionado ? seleccionado.nombre : ''}                    
-                            onChange={handleChange}/>
-                            <br />
-
-                            <label>Email</label> 
-                            <input className="form-control" type="text" name="email" required value={seleccionado ? seleccionado.email : ''}                    
-                            onChange={handleChange}/>
-                            <br />
-                            
-                            <label>Contraseña</label> 
-                            <input className="form-control" type="password" name="clave1" required value={seleccionado ? seleccionado.clave1 : ''}                    
-                            onChange={handleChange}/>
-                            <br />
-
-                            <label>Contraseña</label> 
-                            <input className="form-control" type="password" name="clave2" required value={seleccionado ? seleccionado.clave2 : ''}                    
-                            onChange={handleChange}/>
-                            
+                    <form onSubmit={()=>insertar()}>
+                        <ModalHeader>
+                        <div>
+                            <h3>Agregar Usuario</h3>
                         </div>
-                    </ModalBody>
-                    <ModalFooter>
-                        <button className="btn btn-primary" onClick={()=>insertar()}>Insertar</button>
-                        <button className="btn btn-danger" onClick={()=>setModalInsertar(false)}>Cancelar</button>
-                    </ModalFooter>
+                        </ModalHeader>
+                        <ModalBody>
+                            <div className="form-group">
+                                <label>ID</label>
+                                <input className="form-control" readOnly type="text" name="id" value=""/>
+                                <br />
+
+                                <label>Nombre</label> 
+                                <input className="form-control" type="text" name="nombre" required value={seleccionado ? seleccionado.nombre : ''}                    
+                                onChange={handleChange}/>
+                                <br />
+
+                                <label>Email</label> 
+                                <input className="form-control" type="email" name="email" required value={seleccionado ? seleccionado.email : ''}                    
+                                onChange={handleChange}/>
+                                <br />
+                                
+                                <label>Contraseña</label> 
+                                <input className="form-control" type="password" name="clave1" required value={seleccionado ? seleccionado.clave1 : ''}                    
+                                onChange={handleChange}/>
+                                <br />
+
+                                <label>Contraseña</label> 
+                                <input className="form-control" type="password" name="clave2" required value={seleccionado ? seleccionado.clave2 : ''}                    
+                                onChange={handleChange}/>
+                                
+                            </div>
+                        </ModalBody>
+                        <ModalFooter>
+                            <button className="btn btn-primary" type='submit'>Insertar</button>
+                            <button className="btn btn-danger" onClick={()=>setModalInsertar(false)}>Cancelar</button>
+                        </ModalFooter>
+                    </form>
                 </Modal>
             </div>
         </>
