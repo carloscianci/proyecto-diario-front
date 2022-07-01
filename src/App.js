@@ -5,6 +5,8 @@ import Weather from './Components/Weather/Weather';
 import Footer from './Components/Footer/Footer';
 import GetApiNoticias from './Components/GetApiNoticias/GetApiNoticias';
 import Navbar from './Components/Navbar/Navbar';
+import { Form } from 'reactstrap';
+import FormUser from './Components/FormUser/FormUser';
 
 
 
@@ -23,12 +25,13 @@ const App = () => {
 
             <GetApiNoticias />
           
-
+            <FormUser />
           
-            <Footer />
+            
           </div>
 
       </div>
+      <Footer />
     </>
   );
 }
