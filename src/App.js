@@ -27,10 +27,11 @@ const App = () => {
           
             <FormUser />
           
-            <Footer />
+            
           </div>
 
       </div>
+      <Footer />
     </>
   );
 }
