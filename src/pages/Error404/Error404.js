@@ -10,8 +10,8 @@ const Error404 = () =>{
         <div className=''>
           <h1>ERROR404!!</h1>
           <h2>
-            A causa de un error en nuestros servidores no podremos brindarle nueva información
-            Intente de nuevo más tarde
+            A causa de un error en nuestros servidores no podremos brindarle nueva información.
+            Intente de nuevo más tarde.
           </h2>
         </div>
       </section>
