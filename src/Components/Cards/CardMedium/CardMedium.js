@@ -15,7 +15,7 @@ const CardMedium = (props) => {
                     <h3 className='card_title_medium'>{props.title}</h3>
                 </div>
                 
-                <div className="text_min">
+                <div className="text_redux">
                 <p className= 'card_texto_medium' id='parrafo-id' >{props.text_p}</p>
                 </div>
             </div>
