@@ -3,14 +3,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Login.css';
 import { useForm } from "react-hook-form";
 import axios from "axios";
+
+
 const Login = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm()
-
-    // const putAdmin = (data) => {
-    //     alert('putAdmin')
-    //     console.log(data);
-// }
 
     const getLogin = async(data) => {
         console.log(data);
@@ -20,18 +17,17 @@ const Login = () => {
             // body: JSON.stringify(data)
             
         })
-        if (result && result.data.resultado) {
-            localStorage.setItem("token", result.data.token)
-        }
-        
-        if (result && result.data.resultado) {
-            localStorage.setItem("Mensaje", result.data.message)
-        }
-
 
         console.log(result);
+        if (result && result.data.resultado) {
+            localStorage.setItem("access_token", result.data.token)
+            window.open('adminNoticias')
+        }
+        
 
-    }
+        }
+
+    
     
     return (
         <form id="contenedor">
