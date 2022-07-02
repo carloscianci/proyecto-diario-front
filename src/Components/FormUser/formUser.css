@@ -1,9 +1,11 @@
 .titulo{
-  background-color: #1363DF;
-  color: red;
+  background-color: #47B5FF;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   padding: 2px 4px 2px 4px;
   border: none;
+}
+.color-titulo-formulario{
+  color: black;
 }
 .espacio-titulos{
   padding: 15px 1px 1px 1px;
