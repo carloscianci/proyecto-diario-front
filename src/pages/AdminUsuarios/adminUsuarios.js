@@ -22,22 +22,10 @@ const AdminUsuarios = () => {
         principal: 0
     });
 
-    ////// Borrar cuando esté listo el Login
-    const autenticar = async() => {
-        const resultado = await axios.post('http://localhost:8000/usuario/login',{
-            "email" : "administrador-diario@gmail.com",
-            "clave" : "ad1234"
-        })
-        if (resultado && resultado.data.resultado) {
-            localStorage.setItem("access_token", resultado.data.token)
-        }
-
-    }
-    autenticar()
-    /////////////////////////////////////////
+    const url = process.env.REACT_APP_URL_API
 
     const getUsuarios = async () => {
-        const respUsuarios = await axios.post('http://localhost:8000/usuario/listaUsuarios',{
+        const respUsuarios = await axios.post(url + '/usuario/listaUsuarios',{
             "access_token" : getToken()
         })
         
@@ -75,7 +63,7 @@ const AdminUsuarios = () => {
     const editar = async() => {
         try {
             if(seleccionado.clave1 === seleccionado.clave2 && seleccionado.clave1.length > 0) {
-                const updateUsuario = await axios.put('http://localhost:8000/usuario',{
+                const updateUsuario = await axios.put(url + '/usuario',{
                     "idusuario" : seleccionado._id,
                     "nombre" : seleccionado.nombre,
                     "email" : seleccionado.email,
@@ -104,7 +92,7 @@ const AdminUsuarios = () => {
 
     const eliminar = async() => {
         try {
-            const deleteUsuario = await axios.delete('http://localhost:8000/usuario',{data : {
+            const deleteUsuario = await axios.delete(url + '/usuario',{data : {
                 "idusuario" : seleccionado._id,
                 "access_token" : getToken()
             }})
@@ -132,7 +120,7 @@ const AdminUsuarios = () => {
     const insertar = async () => {
         try {
             if(seleccionado.clave1 === seleccionado.clave2 && seleccionado.clave1.length > 0) {
-                const insertUsuario = await axios.post('http://localhost:8000/usuario',{
+                const insertUsuario = await axios.post(url + '/usuario',{
                     "nombre" : seleccionado.nombre,
                     "email" : seleccionado.email,
                     "clave" : seleccionado.clave1,

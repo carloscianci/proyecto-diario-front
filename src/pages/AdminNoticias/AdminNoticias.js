@@ -23,22 +23,10 @@ const AdminNoticias = () => {
         destacada_diario: 0
     });
 
-    ////// Borrar cuando esté listo el Login
-    const autenticar = async() => {
-        const resultado = await axios.post('http://localhost:8000/usuario/login',{
-            "email" : "administrador-diario@gmail.com",
-            "clave" : "ad1234"
-        })
-        if (resultado && resultado.data.resultado) {
-            localStorage.setItem("access_token", resultado.data.token)
-        }
-
-    }
-    autenticar()
-    /////////////////////////////////////////
-
+    const url = process.env.REACT_APP_URL_API
+    
     const getNoticias = async () => {
-        const respNoticias = await axios.get('http://localhost:8000/noticia')
+        const respNoticias = await axios.get(url + "/noticia")
 
         if (respNoticias.data.resultado) 
             setNoticias(respNoticias.data.listaNoticias)
@@ -62,8 +50,6 @@ const AdminNoticias = () => {
           ...prevState,
           [name]: name==="destacada_seccion" || name==="destacada_diario" ? (checked ? 1 : 0) : value  
         }));
-
-        console.log(seleccionado)
     }
 
     const getToken = () => {
@@ -73,8 +59,7 @@ const AdminNoticias = () => {
 
     const editar = async() => {
         try {
-            console.log(seleccionado)
-            const updateNoticia = await axios.put('http://localhost:8000/noticia',{
+            const updateNoticia = await axios.put(url + "/noticia",{
                 "idnoticia" : seleccionado._id,
                 "idtiponoticia" : seleccionado.idtiponoticia,
                 "titulo" : seleccionado.titulo,
@@ -97,14 +82,13 @@ const AdminNoticias = () => {
                 alert("ERROR!!! No se pudo actualizar la noticia.")    
             }
         } catch (error) {
-            alert("ERROR!!! .")    
             console.log(error)
         }
     }
 
     const eliminar = async() => {
         try {
-            const deleteNoticia = await axios.delete('http://localhost:8000/noticia',{data : {
+            const deleteNoticia = await axios.delete(url + "/noticia",{data : {
                 "idnoticia" : seleccionado._id,
                 "access_token" : getToken()
             }})
@@ -131,7 +115,7 @@ const AdminNoticias = () => {
 
     const insertar = async () => {
         try {
-            const insertNoticia = await axios.post('http://localhost:8000/noticia',{
+            const insertNoticia = await axios.post(url + "/noticia",{
                 "idtiponoticia" : seleccionado.idtiponoticia,
                 "titulo" : seleccionado.titulo,
                 "resumen" : seleccionado.resumen,
