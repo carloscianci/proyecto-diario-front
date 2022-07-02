@@ -8,10 +8,11 @@ import axios from "axios";
 const Login = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm()
+    const url = process.env.REACT_APP_URL_API
 
     const getLogin = async(data) => {
         console.log(data);
-        const result = await axios.post('http://localhost:8000/usuario/login',{
+        const result = await axios.post(url + '/usuario/login',{
             "email" : data.email,
             "clave" : data.clave
             // body: JSON.stringify(data)

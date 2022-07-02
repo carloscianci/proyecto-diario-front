@@ -18,22 +18,10 @@ const AdminSuscripciones = () => {
         telefono: ""
     });
 
-    ////// Borrar cuando esté listo el Login
-    const autenticar = async() => {
-        const resultado = await axios.post('http://localhost:8000/usuario/login',{
-            "email" : "administrador-diario@gmail.com",
-            "clave" : "ad1234"
-        })
-        if (resultado && resultado.data.resultado) {
-            localStorage.setItem("access_token", resultado.data.token)
-        }
-
-    }
-    autenticar()
-    /////////////////////////////////////////
-
+    const url = process.env.REACT_APP_URL_API
+    
     const getSuscripciones = async () => {
-        const respSuscripciones = await axios.post('http://localhost:8000/suscripcion/listaSuscripciones', {
+        const respSuscripciones = await axios.post(url + '/suscripcion/listaSuscripciones', {
             "access_token" : getToken() 
         })
 
@@ -68,7 +56,7 @@ const AdminSuscripciones = () => {
 
     const editar = async() => {
         try {
-            const updateSuscripcion = await axios.put('http://localhost:8000/suscripcion',{
+            const updateSuscripcion = await axios.put(url + '/suscripcion',{
                 "idsuscripcion" : seleccionado._id,
                 "nombre" : seleccionado.nombre,
                 "apellido" : seleccionado.apellido,
@@ -94,7 +82,7 @@ const AdminSuscripciones = () => {
 
     const eliminar = async() => {
         try {
-            const deleteSuscripcion = await axios.delete('http://localhost:8000/suscripcion',{data : {
+            const deleteSuscripcion = await axios.delete(url + '/suscripcion',{data : {
                 "idsuscripcion" : seleccionado._id,
                 "access_token" : getToken()
             }})
