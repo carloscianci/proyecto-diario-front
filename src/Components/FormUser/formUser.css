@@ -1,6 +1,6 @@
 .titulo{
-  /* background-color: #1363DF; */
-  color: black;
+  background-color: #1363DF;
+  color: red;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   padding: 2px 4px 2px 4px;
   border: none;
@@ -18,15 +18,22 @@
 .titulo-2{
   border-radius: 0 0 6px 6px;
 }
+.container-formulario{
+  height: 300px;
+  width: 100%;
+}
 .form-container{
   height: 300px;
-  width: 400px;
+  width: 600px;
 }
 .item-registro{
   padding: 0px;
   margin: 10px;
   height: 55px;
-  width: 100%;
+  width: 400px;
+}
+.items-pequeños{
+  width: 195px;
 }
 .boton-registro{
   padding: 5px;
