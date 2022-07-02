@@ -7,9 +7,9 @@ import axios from "axios";
 const FormUser = () => {
 
   const { register, handleSubmit } = useForm()
-  const url = REACT_APP_URL_API
+  const url = process.env.REACT_APP_URL_API
   const postFormUser = async(dataForm, e) => {
-    const resultsFU = await axios.post(rl + '/suscripcion',{
+    const resultsFU = await axios.post(url + '/suscripcion',{
       "nombre" : dataForm.nombre,
       "apellido" : dataForm.apellido,
       "email" : dataForm.email,
