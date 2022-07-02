@@ -8,6 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import AdminNoticias from './pages/AdminNoticias/AdminNoticias';
 import AdminSuscripciones from './pages/AdminSuscripciones/AdminSuscripciones';
 import AdminUsuarios from './pages/AdminUsuarios/adminUsuarios';
+import Login from './pages/Login/Login';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,6 +19,7 @@ root.render(
         <Route path='/AdminNoticias' element={<AdminNoticias />}/>
         <Route path='/AdminSuscrip' element={<AdminSuscripciones />}/>
         <Route path='/AdminUsuarios' element={<AdminUsuarios />} />
+        <Route path='/LoginAdmin' element={<Login />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
