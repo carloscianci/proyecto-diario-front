@@ -23,24 +23,29 @@ const Weather = () => {
     useEffect(() => {
         getWeather()
     }, [])
-  
+
     const urlWeather = 'http://openweathermap.org/img/w/'
     const iconUrl = urlWeather + weather.icon + '.png';
-   
-   
+
+
 
     return (
-   
-        <div className="card-style">
-            <div className=" wheather-img">
-                <img className='card-img' src={iconUrl} alt="icono" />
-            </div>
+        <div className="container">
+            <div className="row">
+                <div className="card-style col-12 col-xs-12 col-md-12">
+                    <div className=" wheather-img">
+                        <img className='card-img' src={iconUrl} alt="icono" />
+                    </div>
 
-            <div className="card-title">
-                <h3 className='card-temp'>{temp.feels_like}°C</h3>
-                <h2 className='card-city'>{city.name}</h2>
-            </div>   
+                    <div className="card-title">
+                        <h3 className='card-temp'>{temp.feels_like}°C</h3>
+                        <h2 className='card-city'>{city.name}</h2>
+                    </div>
+                </div>
+            </div>
         </div>
+
+
     );
 };
 

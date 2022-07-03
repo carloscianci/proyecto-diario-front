@@ -3,35 +3,32 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Login.css';
 import { useForm } from "react-hook-form";
 import axios from "axios";
+
+
 const Login = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm()
-
-    // const putAdmin = (data) => {
-    //     alert('putAdmin')
-    //     console.log(data);
-// }
+    const url = process.env.REACT_APP_URL_API
 
     const getLogin = async(data) => {
         console.log(data);
-        const result = await axios.post('http://localhost:8000/usuario/login',{
+        const result = await axios.post(url + '/usuario/login',{
             "email" : data.email,
             "clave" : data.clave
             // body: JSON.stringify(data)
             
         })
-        if (result && result.data.resultado) {
-            localStorage.setItem("token", result.data.token)
-        }
-        
-        if (result && result.data.resultado) {
-            localStorage.setItem("Mensaje", result.data.message)
-        }
-
 
         console.log(result);
+        if (result && result.data.resultado) {
+            localStorage.setItem("access_token", result.data.token)
+            window.open('adminNoticias')
+        }
+        
 
-    }
+        }
+
+    
     
     return (
         <form id="contenedor">

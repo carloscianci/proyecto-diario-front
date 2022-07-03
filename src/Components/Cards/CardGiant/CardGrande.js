@@ -5,23 +5,28 @@ import './CardGiant.css'
 
 const CardGiant = (props) => {
     return (
-            <div className='card_style_giant responsive_g' id={props.id}>
+        <div className='card_style_giant container-fluid p-0' id={props.id}>
 
-                <div className="container_card">
-                    <div className='background_style_title'>
-                        <h3 className='card_seccion_giant' id='seccion-id'>{props.seccion}</h3>
+            <div className="row">
+
+                <div className="container_text col-12 col-xs-12 col-sm-12 col-md-5 col-xl-6 col-xxl-6">
+
+                    <div className='card_title_c  col col-xs-6'>
+                        <h3 className='card_title mt-4 p-2' id='seccion-id'>{props.seccion}</h3>
                     </div>
 
-                    <div className="text_res text_min">
-                        <p className='card_text_giant' id='parrafo-id' >{props.text_p}</p>
+                    <div className="card_text_c text_min col col-xs-6 m-2 pt-2">
+                        <p className='card_text' id='parrafo-id' >{props.text_p}</p>
                     </div>
-
                 </div>
 
-                    <div className='img_card'>
-                       <img className='card_img_giant' src={props.img} alt='imagen' id='img.id'></img>
-                    </div>
+                <div className='row card_img_c m-0 p-0 col-xs-12 col-12 col-sm-12 col-md-7 col-xl-6 col-xxl-6'>
+                    <img className='card_img' src={props.img} alt='imagen' id='img.id'></img>
+                </div>
+
             </div>
+
+        </div>
     );
 };
 

@@ -16,10 +16,11 @@ const GetApiNoticias = () => {
     const [economy, setEconomy] = useState([])
     const [espect, setEspect] = useState([])
     const [politica, setPolitica] = useState([])
-  
+
+    const url = process.env.REACT_APP_URL_API
   
     const getBack = async() => {
-        const  respApi = await axios.get('http://localhost:8000/noticia')
+        const  respApi = await axios.get(url + '/noticia')
 
         
         setSports(respApi.data.listaNoticias)
@@ -50,14 +51,6 @@ const GetApiNoticias = () => {
     return 0;
   }
   
-  // Filtrado de noticias
-
-          // const Filtro = newsF.map(info => info.idtiponoticia)
-  
-          
-            // const filterSports = Filtro.filter(n => n === 5)
-  
-  
 
     return ( 
     
@@ -74,7 +67,7 @@ const GetApiNoticias = () => {
 
               {/* DEPORTES */}
 
-              <Separator seccion= 'Deportes'/>
+              <Separator seccion= 'Deportes' id='sDeportes'/>
             <div className=" scroll-container d-flex justify-content-start">
                 {
                   economy.filter(n => n.destacada_diario === 1).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
@@ -86,7 +79,7 @@ const GetApiNoticias = () => {
 
                 {/* POLITICA */}
 
-              <Separator seccion= 'Politica'/>
+              <Separator seccion= 'Politica' id='sPolitica'/>
             <div className="scroll-container d-flex justify-content-start">
 
               {
@@ -99,7 +92,7 @@ const GetApiNoticias = () => {
             </div>
                 
                 {/* ECONOMIA */}
-              <Separator seccion= 'Economía'/>
+              <Separator seccion= 'Economía' id='sEconomia'/>
             <div className="scroll-container d-flex justify-content-start">
               {
                 economy.filter(n => n.destacada_diario === 1).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
@@ -111,7 +104,7 @@ const GetApiNoticias = () => {
             </div>
 
               {/* POLICIALES */}
-              <Separator seccion= 'Policiales'/>
+              <Separator seccion= 'Policiales' id='sPoliciales'/>
             <div className="scroll-container d-flex justify-content-start">
 
               {
@@ -123,7 +116,7 @@ const GetApiNoticias = () => {
               }
             </div>
               {/* ESPECTACULOS */}
-              <Separator seccion= 'Espectaculos'/>
+              <Separator seccion= 'Espectaculos' id='sEspectaculos'/>
             <div className="scroll-container d-flex justify-content-start">
               {
                 economy.filter(n => n.destacada_diario === 1).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
