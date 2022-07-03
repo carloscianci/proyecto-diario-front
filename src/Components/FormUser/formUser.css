@@ -1,5 +1,4 @@
 .titulo{
-  /* background-color: #47B5FF; */
   font-family: 'Times New Roman', Times, serif;
   padding: 2px 4px 2px 4px;
   border: none;
@@ -14,11 +13,7 @@
   padding: 15px 1px 1px 1px;
 }
 .titulo-1{
-  border-radius: 6px 6px 0 0;
   padding: 5px;
-}
-.titulo-2{
-  border-radius: 0 0 6px 6px;
 }
 .container-formulario{
   height: 300px;

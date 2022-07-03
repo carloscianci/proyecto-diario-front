@@ -27,10 +27,10 @@ const FormUser = () => {
 
   return (
     <>
-      <Separator id='formulario'/>
+      <Separator id="formulario"/>
       <div className="espacio-titulos">
         <div className='d-flex flex-column justify-content-center align-items-center titulo titulo-1'><h2 className="color-titulo-formulario">¿Desea saber más sobre lo que pasa en el mundo?</h2></div>
-        <div className='d-flex flex-column justify-content-center align-items-center titulo titulo-2'><h2 className="color-titulo-formulario">¡Suscríbase y permanezca informado junto a nosotros!</h2></div>
+        <div className='d-flex flex-column justify-content-center align-items-center titulo'><h2 className="color-titulo-formulario">¡Suscríbase y permanezca informado junto a nosotros!</h2></div>
       </div>
       <div className='d-flex flex-column justify-content-center align-items-center container-formulario'>
         <form onSubmit={handleSubmit(postFormUser)} className='d-flex flex-column justify-content-center align-items-center form-container texto-formulario'>
@@ -54,7 +54,7 @@ const FormUser = () => {
           </div>
           <div className='item-registro padding-items flex-column'>
             <label for='email' className='form-label'>E-mail: </label>
-            <input type='email' className='form-control' id='email' placeholder='correoelectronico@example.com' required {...register("email", {
+            <input type='email' className='form-control' id='email' placeholder='correoelectronico@gmail.com' required {...register("email", {
                         pattern:/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
                       })}
             />
