@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './formUser.css'
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import Separator from "../Separator/Separator";
 
 const FormUser = () => {
 
@@ -26,12 +27,13 @@ const FormUser = () => {
 
   return (
     <>
+      <Separator id='formulario'/>
       <div className="espacio-titulos">
         <div className='d-flex flex-column justify-content-center align-items-center titulo titulo-1'><h2 className="color-titulo-formulario">¿Desea saber más sobre lo que pasa en el mundo?</h2></div>
         <div className='d-flex flex-column justify-content-center align-items-center titulo titulo-2'><h2 className="color-titulo-formulario">¡Suscríbase y permanezca informado junto a nosotros!</h2></div>
       </div>
       <div className='d-flex flex-column justify-content-center align-items-center container-formulario'>
-        <form onSubmit={handleSubmit(postFormUser)} className='d-flex flex-column justify-content-center align-items-center form-container'>
+        <form onSubmit={handleSubmit(postFormUser)} className='d-flex flex-column justify-content-center align-items-center form-container texto-formulario'>
           <div className='d-flex justify-content-center justify-content-between item-registro'>
             <div className='d-flex flex-column'>
               <label for='nombreCompleto' className='form-label'>Nombre/s: </label>
@@ -65,7 +67,7 @@ const FormUser = () => {
             />
           </div>
           <div className="boton-registro">
-            <button type="submit" className='btn btn-primary'>Suscribirse</button>
+            <button type="submit" className='btn btn-primary texto-formulario'>Suscribirse</button>
           </div>
         </form>
       </div>

@@ -1,6 +1,6 @@
 .titulo{
-  background-color: #47B5FF;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  /* background-color: #47B5FF; */
+  font-family: 'Times New Roman', Times, serif;
   padding: 2px 4px 2px 4px;
   border: none;
 }
@@ -36,6 +36,10 @@
 }
 .items-pequeños{
   width: 195px;
+}
+.texto-formulario{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: medium;
 }
 .boton-registro{
   padding: 5px;
