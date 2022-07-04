@@ -54,7 +54,8 @@ const AdminSuscripciones = () => {
         return datoToken
     }
 
-    const editar = async() => {
+    const editar = async(e) => {
+        e.preventDefault()
         try {
             const updateSuscripcion = await axios.put(url + '/suscripcion',{
                 "idsuscripcion" : seleccionado._id,
@@ -140,7 +141,7 @@ const AdminSuscripciones = () => {
                 </table>
                 
                 <Modal isOpen={modalEditar}>
-                    <form onSubmit={() => editar()}>
+                    <form onSubmit={editar}>
                         <ModalHeader>
                             <div>
                                 <h3>Editar suscripción</h3>

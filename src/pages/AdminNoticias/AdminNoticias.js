@@ -57,7 +57,8 @@ const AdminNoticias = () => {
         return datoToken
     }
 
-    const editar = async() => {
+    const editar = async(e) => {
+        e.preventDefault()
         try {
             const updateNoticia = await axios.put(url + "/noticia",{
                 "idnoticia" : seleccionado._id,
@@ -113,7 +114,8 @@ const AdminNoticias = () => {
         setModalInsertar(true)
     }
 
-    const insertar = async () => {
+    const insertar = async (e) => {
+        e.preventDefault()
         try {
             const insertNoticia = await axios.post(url + "/noticia",{
                 "idtiponoticia" : seleccionado.idtiponoticia,
@@ -207,7 +209,7 @@ const AdminNoticias = () => {
                 </table>
                 
                 <Modal isOpen={modalEditar}>
-                    <form onSubmit={() => editar()}>
+                    <form onSubmit={editar}>
                         <ModalHeader>
                             <div>
                                 <h3>Editar noticia</h3>
@@ -279,7 +281,7 @@ const AdminNoticias = () => {
                 </Modal>
 
                 <Modal isOpen={modalInsertar}>
-                    <form onSubmit={()=>insertar()}>
+                    <form onSubmit={insertar}>
                         <ModalHeader>
                         <div>
                             <h3>Agregar Noticia</h3>
