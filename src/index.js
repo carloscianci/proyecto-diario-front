@@ -9,6 +9,7 @@ import AdminNoticias from './pages/AdminNoticias/AdminNoticias';
 import AdminSuscripciones from './pages/AdminSuscripciones/AdminSuscripciones';
 import AdminUsuarios from './pages/AdminUsuarios/adminUsuarios';
 import Login from './pages/Login/Login';
+import Error404 from './pages/Error404/Error404';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +21,7 @@ root.render(
         <Route path='/AdminSuscrip' element={<AdminSuscripciones />}/>
         <Route path='/AdminUsuarios' element={<AdminUsuarios />} />
         <Route path='/LoginAdmin' element={<Login />} />
+        <Route path='/Error404' element={<Error404 />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
