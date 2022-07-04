@@ -31,24 +31,9 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <div className='container-fluid'>
-          <div >
-          
-            <div className='col-12'>
-            <Weather />
-            </div>
-
-            {/* <Login /> */}
-            <GetApiNoticias />
-          
-            <FormUser />
-          
-            
-          </div>
-          {showButton && (
-            <button onClick={scrollToTop} className="btn btn-primary bi bi-chevron-double-up fs-1 back-to-top"></button>
-          )}
-      </div>
+      <Weather />
+      <GetApiNoticias />
+      <FormUser />
       <Footer />
     </>
   );

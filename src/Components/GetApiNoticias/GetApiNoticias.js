@@ -16,6 +16,8 @@ const GetApiNoticias = () => {
     const [economy, setEconomy] = useState([])
     const [espect, setEspect] = useState([])
     const [politica, setPolitica] = useState([])
+    const [poli, setPoli] = useState([])
+
 
     const url = process.env.REACT_APP_URL_API
   
@@ -23,17 +25,17 @@ const GetApiNoticias = () => {
         const  respApi = await axios.get(url + '/noticia')
 
         
+        setPolitica(respApi.data.listaNoticias)
         setSports(respApi.data.listaNoticias)
         setEconomy(respApi.data.listaNoticias)
         setEspect(respApi.data.listaNoticias)
-        setPolitica(respApi.data.listaNoticias)
-        // setPoli(respApi.data.listaNoticias)
+        setPoli(respApi.data.listaNoticias)
 
       }
   
     useEffect(() => {
       getBack()
-  }, [])
+  },)
 
   // console.log(news);
      
@@ -65,17 +67,6 @@ const GetApiNoticias = () => {
 
           <div className="pag_news_style">
 
-              {/* DEPORTES */}
-
-              <Separator seccion= 'Deportes' id='sDeportes'/>
-            <div className=" scroll-container d-flex justify-content-start">
-                {
-                  economy.filter(n => n.destacada_diario === 1).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
-                }
-                {
-                  sports.sort(orderNews).filter(n => n.idtiponoticia === 5).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
-                }
-            </div >
 
                 {/* POLITICA */}
 
@@ -83,11 +74,11 @@ const GetApiNoticias = () => {
             <div className="scroll-container d-flex justify-content-start">
 
               {
-                politica.filter(n => n.destacada_diario === 1).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
+                politica.filter(n => n.destacada_seccion === 1 && n.idtiponoticia === 1).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
               }
               
               {
-                politica.sort(orderNews).filter(n => n.idtiponoticia === 3).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
+                politica.sort(orderNews).filter(n => n.idtiponoticia === 1).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
               }
             </div>
                 
@@ -95,7 +86,7 @@ const GetApiNoticias = () => {
               <Separator seccion= 'Economía' id='sEconomia'/>
             <div className="scroll-container d-flex justify-content-start">
               {
-                economy.filter(n => n.destacada_diario === 1).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
+                economy.filter(n => n.destacada_seccion === 1 && n.idtiponoticia === 2).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
               }
 
               {
@@ -107,25 +98,38 @@ const GetApiNoticias = () => {
               <Separator seccion= 'Policiales' id='sPoliciales'/>
             <div className="scroll-container d-flex justify-content-start">
 
-              {
-                economy.filter(n => n.destacada_diario === 1).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
+            {
+                poli.filter(n => n.destacada_seccion === 1 && n.idtiponoticia === 3).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
               }
 
               {
-                sports.sort(orderNews).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
+                poli.sort(orderNews).filter(n => n.idtiponoticia === 3).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
               }
             </div>
+
               {/* ESPECTACULOS */}
               <Separator seccion= 'Espectaculos' id='sEspectaculos'/>
             <div className="scroll-container d-flex justify-content-start">
               {
-                economy.filter(n => n.destacada_diario === 1).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
+                economy.filter(n => n.destacada_seccion === 1 && n.idtiponoticia === 4).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
               }
 
               {
                 espect.sort(orderNews).filter(n => n.idtiponoticia === 4).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
               }
             </div>
+
+             {/* DEPORTES */}
+
+             <Separator seccion= 'Deportes' id='sDeportes'/>
+            <div className=" scroll-container d-flex justify-content-start">
+                {
+                  economy.filter(n => n.destacada_seccion === 1 && n.idtiponoticia === 5).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
+                }
+                {
+                  sports.sort(orderNews).filter(n => n.idtiponoticia === 5).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
+                }
+            </div >
 
           </div>
         </div>

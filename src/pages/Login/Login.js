@@ -22,7 +22,9 @@ const Login = () => {
         console.log(result);
         if (result && result.data.resultado) {
             localStorage.setItem("access_token", result.data.token)
-            window.location.href = 'adminNoticias';
+            window.open('adminNoticias')
+        } else{
+            alert('Usuario y contraseña ivalido')
         }
         
 
