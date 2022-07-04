@@ -38,7 +38,7 @@
     max-width: 900px;
     width: 90%;
     
-    background-color: #5f6769;
+    background-color: #06283D;
     
     border-radius: 10px 10px 10px 10px;
     -moz-border-radius: 10px 10px 10px 10px;
@@ -58,7 +58,7 @@
     max-width: 320px;
     min-width: 320px;
     padding: 30px 30px 50px 30px;
-    background-color: #719192;
+    background-color: #1363DF;
     
     -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
     -moz-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
@@ -78,7 +78,7 @@
     display: block;
     font-family: 'Overpass', sans-serif;
     font-size: 120%;
-    color:#3c4245;
+    color: white;
     
     margin-top: 15px;
 }
@@ -111,7 +111,7 @@
 #login button {
     font-family: 'Overpass', sans-serif;
     font-size: 110%;
-    color:#1b262c;
+    color: white;
     width: 100%;
     height: 40px;
     border: none;
@@ -120,14 +120,14 @@
     -moz-border-radius: 3px 3px 3px 3px;
     -webkit-border-radius: 3px 3px 3px 3px;
     
-    background-color: #1363DF;
+    background-color: #47B5FF;
     
     margin-top: 10px;
 }
 
 #login button:hover {
-    background-color: #47B5FF;
-    color:white;
+    background-color: #DFF6FF;
+    color:black;
 }
 
 #derecho {
@@ -181,7 +181,7 @@ hr {
         max-width: 900px;
         width: 90%;
 
-        background-color: #5f6769;
+        background-color: #06283D;
 
         border-radius: 10px 10px 10px 10px;
         -moz-border-radius: 10px 10px 10px 10px;

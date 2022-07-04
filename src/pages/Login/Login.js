@@ -23,6 +23,8 @@ const Login = () => {
         if (result && result.data.resultado) {
             localStorage.setItem("access_token", result.data.token)
             window.open('adminNoticias')
+        } else{
+            alert('Usuario y contraseña ivalido')
         }
         
 
