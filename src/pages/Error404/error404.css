@@ -1,0 +1,43 @@
+.container-error404{
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.div-texto-error{
+  font-family: 'Times New Roman', Times, serif;
+  color: #47B5FF;
+}
+.boton-retornar-principal{
+  margin: 50px 0px 0px 0px;
+}
+.fuente-titulo-error-pc{
+  font-size: 120px;
+  padding: 0px;
+}
+.margin-titulo-pc{
+  margin: 90px 0px 0px 0px;
+}
+@media screen and (max-width: 540px) {
+  .fuente-titulo-error-mobile{
+    font-size: 80px;
+    height: 100%;
+    width: 100%;
+    padding: 5px 15px 5px 15px;
+    margin: 0;
+  }
+  .margin-titulo-mobile{
+    margin: 90px 0px 0px 0px;
+  }
+  .fuente-texto-error-mobile{
+    padding: 15px;
+    margin: 10px;
+  }
+  .texto-mobile{
+    margin: 15px;
+  }
+}
+
+
+
+
