@@ -22,7 +22,7 @@ const Error404 = () =>{
         </div>
 
         <div className="boton-retornar-principal">
-          <a type="submit" className='btn btn-primary' href="/#">Volver a página principal</a>
+          <a className='btn btn-primary' href="/#">Volver a página principal</a>
         </div>
 
       </section>
