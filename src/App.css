@@ -14,3 +14,19 @@ body { margin: 0; }
     
   }
 }
+
+.back-to-top {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  height: 75px;
+  width: 75px;
+  color: white;
+  border-radius: 100px;
+  border: none;
+  opacity: 75%;
+}
+
+.back-to-top:hover {
+  background: #7d84ea
+}
