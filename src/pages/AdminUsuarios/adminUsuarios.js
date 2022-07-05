@@ -24,7 +24,7 @@ const AdminUsuarios = () => {
     });
 
     const getUsuarios = async () => {
-        const respUsuarios = await axios.post(url + '/usuario/listaUsuarios',{
+        const respUsuarios = await axios.post(`${url}/usuario/listaUsuarios`,{
             "access_token" : getToken()
         })
         
@@ -63,7 +63,7 @@ const AdminUsuarios = () => {
         e.preventDefault()
         try {
             if(seleccionado.clave1 === seleccionado.clave2 && seleccionado.clave1.length > 0) {
-                const updateUsuario = await axios.put(url + '/usuario',{
+                const updateUsuario = await axios.put(`${url}/usuario`,{
                     "idusuario" : seleccionado._id,
                     "nombre" : seleccionado.nombre,
                     "email" : seleccionado.email,
@@ -92,7 +92,7 @@ const AdminUsuarios = () => {
 
     const eliminar = async() => {
         try {
-            const deleteUsuario = await axios.delete(url + '/usuario',{data : {
+            const deleteUsuario = await axios.delete(`${url}/usuario`,{data : {
                 "idusuario" : seleccionado._id,
                 "access_token" : getToken()
             }})
@@ -121,7 +121,7 @@ const AdminUsuarios = () => {
         e.preventDefault()
         try {
             if(seleccionado.clave1 === seleccionado.clave2 && seleccionado.clave1.length > 0) {
-                const insertUsuario = await axios.post(url + '/usuario',{
+                const insertUsuario = await axios.post(`${url}/usuario`,{
                     "nombre" : seleccionado.nombre,
                     "email" : seleccionado.email,
                     "clave" : seleccionado.clave1,

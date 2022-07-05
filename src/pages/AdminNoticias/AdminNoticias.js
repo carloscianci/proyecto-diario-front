@@ -26,7 +26,7 @@ const AdminNoticias = () => {
     });
 
     const getNoticias = async () => {
-        const respNoticias = await axios.get(url + "/noticia")
+        const respNoticias = await axios.get(`${url}/noticia`)
 
         if (respNoticias.data.resultado) 
             setNoticias(respNoticias.data.listaNoticias)
@@ -60,7 +60,7 @@ const AdminNoticias = () => {
     const editar = async(e) => {
         e.preventDefault()
         try {
-            const updateNoticia = await axios.put(url + "/noticia",{
+            const updateNoticia = await axios.put(`${url}/noticia`,{
                 "idnoticia" : seleccionado._id,
                 "idtiponoticia" : seleccionado.idtiponoticia,
                 "titulo" : seleccionado.titulo,
@@ -89,7 +89,7 @@ const AdminNoticias = () => {
 
     const eliminar = async() => {
         try {
-            const deleteNoticia = await axios.delete(url + "/noticia",{data : {
+            const deleteNoticia = await axios.delete(`${url}/noticia`,{data : {
                 "idnoticia" : seleccionado._id,
                 "access_token" : getToken()
             }})
@@ -117,7 +117,7 @@ const AdminNoticias = () => {
     const insertar = async (e) => {
         e.preventDefault()
         try {
-            const insertNoticia = await axios.post(url + "/noticia",{
+            const insertNoticia = await axios.post(`${url}/noticia`,{
                 "idtiponoticia" : seleccionado.idtiponoticia,
                 "titulo" : seleccionado.titulo,
                 "resumen" : seleccionado.resumen,

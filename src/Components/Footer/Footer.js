@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Footer.css'
+import { Link } from "react-router-dom"
 
 const Footer = () => {
     return (
@@ -38,11 +39,11 @@ const Footer = () => {
                         </ul>
                         <br />
                         <div>
-                            <a className="bi bi-facebook me-2 fs-3" title="Facebook" href="/#"> </a>
-                            <a className="bi bi-instagram me-2 fs-3" title="Instagram" href="/#"> </a>
-                            <a className="bi bi-twitter me-2 fs-3" title="Twitter" href="/#"> </a>
-                            <a className="bi bi-youtube me-2 fs-3" title="Youtube" href="/#"> </a>
-                            <a className="bi bi-telegram me-2 fs-3" title="Telegram" href="/#"> </a>
+                            <Link className="bi bi-facebook me-2 fs-3" title="Facebook" to="/"></Link>
+                            <Link className="bi bi-instagram me-2 fs-3" title="Instagram" to="/"></Link>
+                            <Link className="bi bi-twitter me-2 fs-3" title="Twitter" to="/"></Link>
+                            <Link className="bi bi-youtube me-2 fs-3" title="Youtube" to="/"></Link>
+                            <Link className="bi bi-telegram me-2 fs-3" title="Telegram" to="/"></Link>
                         </div>
                     </div>
                 </div>

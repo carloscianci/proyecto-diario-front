@@ -6,11 +6,11 @@ import axios from "axios";
 import Separator from "../Separator/Separator";
 
 const FormUser = () => {
-
-  const { register, handleSubmit } = useForm()
   const url = process.env.REACT_APP_URL_API
+  const { register, handleSubmit } = useForm()
+
   const postFormUser = async(dataForm, e) => {
-    const resultsFU = await axios.post(url + '/suscripcion',{
+    const resultsFU = await axios.post(`${url}/suscripcion`,{
       "nombre" : dataForm.nombre,
       "apellido" : dataForm.apellido,
       "email" : dataForm.email,

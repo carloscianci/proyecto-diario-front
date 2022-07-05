@@ -3,26 +3,27 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Login.css';
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+
 
 
 const Login = () => {
+    const url = process.env.REACT_APP_URL_API
+    let navigate = useNavigate();
 
     const { register, handleSubmit, formState: { errors } } = useForm()
-    const url = process.env.REACT_APP_URL_API
+    
 
     const getLogin = async(data) => {
-        console.log(data);
-        const result = await axios.post(url + '/usuario/login',{
+        const result = await axios.post(`${url}/usuario/login`,{
             "email" : data.email,
             "clave" : data.clave
-            // body: JSON.stringify(data)
-            
         })
 
-        console.log(result);
         if (result && result.data.resultado) {
             localStorage.setItem("access_token", result.data.token)
-            window.location.href = "adminNoticias"
+            navigate("/adminNoticias")
+            //window.location.href = "adminNoticias"
         } else{
             alert('Usuario y contraseña ivalido')
         }
@@ -65,7 +66,7 @@ const Login = () => {
                         <a href="#/">¿Perdiste tu contraseña?</a>
                         <a href="#/">¿No tienes Cuenta? Registrate</a>
                         <hr />
-                        <a href="#/">« Volver</a>
+                        <Link to="/">« Volver </Link>       
                     </div>
                 </div>
             </div>
