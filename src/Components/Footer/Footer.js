@@ -39,11 +39,11 @@ const Footer = () => {
                         </ul>
                         <br />
                         <div>
-                            <Link className="bi bi-facebook me-2 fs-3" title="Facebook" to="/"></Link>
-                            <Link className="bi bi-instagram me-2 fs-3" title="Instagram" to="/"></Link>
-                            <Link className="bi bi-twitter me-2 fs-3" title="Twitter" to="/"></Link>
-                            <Link className="bi bi-youtube me-2 fs-3" title="Youtube" to="/"></Link>
-                            <Link className="bi bi-telegram me-2 fs-3" title="Telegram" to="/"></Link>
+                            <Link className="bi bi-facebook me-2 fs-3" title="Facebook" to="facebook"></Link>
+                            <Link className="bi bi-instagram me-2 fs-3" title="Instagram" to="instagran"></Link>
+                            <Link className="bi bi-twitter me-2 fs-3" title="Twitter" to="twitter"></Link>
+                            <Link className="bi bi-youtube me-2 fs-3" title="Youtube" to="youtube"></Link>
+                            <Link className="bi bi-telegram me-2 fs-3" title="Telegram" to="telegram"></Link>
                         </div>
                     </div>
                 </div>
