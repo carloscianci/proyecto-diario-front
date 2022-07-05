@@ -27,22 +27,22 @@ const Footer = () => {
                         <ul className="footer-links">
                             <h6>Contribuidores</h6>
                             <li>
-                                <a href="https://github.com/David-fStack/" target="_blank" >Moyano David</a>
+                                <a href="https://github.com/David-fStack/" >Moyano David</a>
                             </li>
                             <li>
-                                <a href="https://www.linkedin.com/in/carlos-cianci" target="_blank">Cianci Carlos</a>
+                                <a href="https://www.linkedin.com/in/carlos-cianci" >Cianci Carlos</a>
                             </li>
                             <li>
-                                <a href="https://www.linkedin.com/in/mariano-agust%C3%ADn-garz%C3%B3n-412600240/" target="_blank">Mariano Garzón</a>
+                                <a href="https://www.linkedin.com/in/mariano-agust%C3%ADn-garz%C3%B3n-412600240/" >Mariano Garzón</a>
                             </li>
                         </ul>
                         <br />
                         <div>
-                            <a className="bi bi-facebook me-2 fs-3" title="Facebook" href="#"></a>
-                            <a className="bi bi-instagram me-2 fs-3" title="Instagram" href="#"></a>
-                            <a className="bi bi-twitter me-2 fs-3" title="Twitter" href="#"></a>
-                            <a className="bi bi-youtube me-2 fs-3" title="Youtube" href="#"></a>
-                            <a className="bi bi-telegram me-2 fs-3" title="Telegram" href="#"></a>
+                            <a className="bi bi-facebook me-2 fs-3" title="Facebook" href="/#"> </a>
+                            <a className="bi bi-instagram me-2 fs-3" title="Instagram" href="/#"> </a>
+                            <a className="bi bi-twitter me-2 fs-3" title="Twitter" href="/#"> </a>
+                            <a className="bi bi-youtube me-2 fs-3" title="Youtube" href="/#"> </a>
+                            <a className="bi bi-telegram me-2 fs-3" title="Telegram" href="/#"> </a>
                         </div>
                     </div>
                 </div>
