@@ -50,7 +50,6 @@ const AdminSuscripciones = () => {
 
     const getToken = () => {
         const datoToken = localStorage.getItem("access_token")
-        console.log(datoToken)
         return datoToken
     }
 
@@ -69,7 +68,7 @@ const AdminSuscripciones = () => {
             if (updateSuscripcion) {
                 if (updateSuscripcion.data.resultado) {
                     setModalEditar(false);
-                    window.location.reload()
+                    getSuscripciones()
                 } else {
                     alert(updateSuscripcion.data.message)
                 }
@@ -90,8 +89,8 @@ const AdminSuscripciones = () => {
 
             if (deleteSuscripcion) {
                 if (deleteSuscripcion.data.resultado) {
-                    setModalEditar(false);
-                    window.location.reload()
+                    setModalEliminar(false);
+                    getSuscripciones()
                 } else {
                     alert(deleteSuscripcion.data.message)
                 }

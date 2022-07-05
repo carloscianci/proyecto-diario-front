@@ -75,7 +75,7 @@ const AdminUsuarios = () => {
                 if (updateUsuario) {
                     if (updateUsuario.data.resultado) {
                         setModalEditar(false);
-                        window.location.reload()
+                        getUsuarios()
                     } else {
                         alert(updateUsuario.data.message)
                     }
@@ -99,8 +99,8 @@ const AdminUsuarios = () => {
 
             if (deleteUsuario) {
                 if (deleteUsuario.data.resultado) {
-                    setModalEditar(false);
-                    window.location.reload()
+                    setModalEliminar(false);
+                    getUsuarios()
                 } else {
                     alert(deleteUsuario.data.message)
                 }
@@ -132,7 +132,7 @@ const AdminUsuarios = () => {
                 if (insertUsuario) {
                     if (insertUsuario.data.resultado) {
                         setModalInsertar(false);
-                        window.location.reload()
+                        getUsuarios()
                     } else {
                         alert(insertUsuario.data.message)
                     }
