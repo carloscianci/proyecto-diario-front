@@ -21,7 +21,7 @@ root.render(
         <Route path='/AdminSuscrip' element={<AdminSuscripciones />}/>
         <Route path='/AdminUsuarios' element={<AdminUsuarios />} />
         <Route path='/LoginAdmin' element={<Login />} />
-        <Route path='/Error404' element={<Error404 />} />
+        <Route path='*' element={<Error404 />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
