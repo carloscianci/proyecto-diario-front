@@ -21,17 +21,13 @@
 }
 .form-container{
   height: 300px;
-  width: 600px;
 }
 .item-registro{
   padding: 0px;
   margin: 10px;
   height: 55px;
-  width: 400px;
 }
-.items-pequeños{
-  width: 195px;
-}
+
 .texto-formulario{
   font-family: 'Times New Roman', Times, serif;
   font-size: medium;
@@ -45,3 +41,13 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+.ancho_form {
+  width: 50%;
+}
+
+@media (max-width:767px)
+{
+  .ancho_form {
+    width: 80%;
+  }
+}

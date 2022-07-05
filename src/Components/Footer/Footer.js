@@ -47,7 +47,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <hr />
+                {/* <hr className='ocultar_hr'/> */}
 
             </div>
         </footer>
