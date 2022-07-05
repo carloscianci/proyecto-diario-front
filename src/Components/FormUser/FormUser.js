@@ -27,7 +27,7 @@ const FormUser = () => {
 
   return (
     <>
-      <Separator id="formulario"/>
+      <Separator className='margin-separador-formulario' id="formulario"/>
       <div className="espacio-titulos mobile-responsive-formulario-titulos">
         <div className='d-flex flex-column justify-content-center align-items-center titulo titulo-1'><h2 className="color-titulo-formulario">¿Desea saber más sobre lo que pasa en el mundo?</h2></div>
         <div className='d-flex flex-column justify-content-center align-items-center titulo'><h2 className="color-titulo-formulario">¡Suscríbase y permanezca informado junto a nosotros!</h2></div>
@@ -66,8 +66,8 @@ const FormUser = () => {
                       })}
             />
           </div>
-          <div className="boton-registro">
-            <button type="submit" className='btn btn-primary texto-formulario'>Suscribirse</button>
+          <div className="boton-registro d-flex justify-content-center align-items-center">
+            <button type="submit" className='boton-contenido btn btn-primary texto-formulario'>Suscribirse</button>
           </div>
         </form>
       </div>
