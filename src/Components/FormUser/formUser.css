@@ -21,7 +21,7 @@
 }
 .form-container{
   height: 300px;
-  width: 600px;
+  width: 100%;
 }
 .item-registro{
   padding: 0px;
@@ -44,4 +44,41 @@
   border: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+@media screen and (max-width: 414px) {  
+  .mobile-responsive-formulario{
+    padding: 0px;
+    margin: 0px;
+    height: 360px;
+    width: 100%;
+  }
+  .mobile-items-pequeños{
+    width: 345px;
+    display: flex;
+    padding: 1px 1px 1px 1px;
+    /* flex-direction: column; */
+    align-items: start;
+    height: 145px;
+    margin: 3px;
+  }
+  .mobile-ap-nom{
+    display: flex;
+    flex-direction: column;
+    height: 195px;
+    margin: 5px;
+  }
+  .mobile-width-form-items{
+    width: 100%;
+  }
+  .mobile-width-input{
+    width: 345px;
+  }
 
+  .mobile-responsive-formulario-titulos{
+    height: 170px;
+    width: 370px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
