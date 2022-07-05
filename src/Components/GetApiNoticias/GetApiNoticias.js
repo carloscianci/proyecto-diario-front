@@ -40,11 +40,11 @@ const GetApiNoticias = () => {
   
   // ordena las noticias 
   const orderNews = (a, b) => {
-    if (a.orders > b.orders){
+    if (a._id > b._id){
       return -1;
     }
 
-    if (a.orders < b.orders) {
+    if (a._id < b._id) {
       return 1;
     }
     
