@@ -9,34 +9,36 @@ import Navbar from './Components/Navbar/Navbar';
 import FormUser from './Components/FormUser/FormUser';
 
 const App = () => {
-  const [showButton, setShowButton] = useState(false);
+    const [showButton, setShowButton] = useState(false);
 
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 300) {
-        setShowButton(true);
-      } else {
-        setShowButton(false);
-      }
-    });
-  }, []);
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+            setShowButton(true);
+        } else {
+            setShowButton(false);
+        }
+        });
+    }, []);
 
-  // This function will scroll the window to the top 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth' // for smoothly scrolling
-    });
-  }
-  return (
-    <>
-      <Navbar />
-      <Weather />
-      <GetApiNoticias />
-      <FormUser />
-      <Footer />
-    </>
-  );
+    const scrollToTop = () => {
+        window.scrollTo({
+        top: 0,
+        behavior: 'smooth' 
+        });
+    }
+    return (
+      <>
+        <Navbar />
+        <Weather />
+        <GetApiNoticias />
+        <FormUser />
+        {showButton && (
+            <button onClick={scrollToTop} className="btn btn-primary bi bi-chevron-double-up fs-1 back-to-top"></button>
+        )}
+        <Footer />
+      </>
+    );
 }
 
 export default App;
