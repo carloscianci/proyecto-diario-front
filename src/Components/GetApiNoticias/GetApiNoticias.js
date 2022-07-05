@@ -74,11 +74,11 @@ const GetApiNoticias = () => {
             <div className="scroll-container d-flex justify-content-start">
 
               {
-                politica.filter(n => n.destacada_seccion === 1 && n.idtiponoticia === 1).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
+                politica.filter(n => n.destacada_seccion === 1 && n.idtiponoticia === 1 && n.destacada_diario === 0).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
               }
               
               {
-                politica.sort(orderNews).filter(n => n.idtiponoticia === 1).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
+                politica.sort(orderNews).filter(n => n.idtiponoticia === 1 && n.destacada_diario === 0 && n.destacada_seccion === 0).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
               }
             </div>
                 
@@ -86,11 +86,11 @@ const GetApiNoticias = () => {
               <Separator seccion= 'Economía' id='sEconomia'/>
             <div className="scroll-container d-flex justify-content-start">
               {
-                economy.filter(n => n.destacada_seccion === 1 && n.idtiponoticia === 2).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
+                economy.filter(n => n.destacada_seccion === 1 && n.idtiponoticia === 2 && n.destacada_diario === 0).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
               }
 
               {
-                economy.sort(orderNews).filter(n => n.idtiponoticia === 2).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
+                economy.sort(orderNews).filter(n => n.idtiponoticia === 2 && n.destacada_diario === 0 && n.destacada_seccion === 0).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
               }
             </div>
 
@@ -99,11 +99,11 @@ const GetApiNoticias = () => {
             <div className="scroll-container d-flex justify-content-start">
 
             {
-                poli.filter(n => n.destacada_seccion === 1 && n.idtiponoticia === 3).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
+                poli.filter(n => n.destacada_seccion === 1 && n.idtiponoticia === 3 && n.destacada_diario === 0).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
               }
 
               {
-                poli.sort(orderNews).filter(n => n.idtiponoticia === 3).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
+                poli.sort(orderNews).filter(n => n.idtiponoticia === 3 && n.destacada_diario === 0 && n.destacada_seccion === 0).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
               }
             </div>
 
@@ -111,11 +111,11 @@ const GetApiNoticias = () => {
               <Separator seccion= 'Espectaculos' id='sEspectaculos'/>
             <div className="scroll-container d-flex justify-content-start">
               {
-                economy.filter(n => n.destacada_seccion === 1 && n.idtiponoticia === 4).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
+                economy.filter(n => n.destacada_seccion === 1 && n.idtiponoticia === 4 && n.destacada_diario === 0).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
               }
 
               {
-                espect.sort(orderNews).filter(n => n.idtiponoticia === 4).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
+                espect.sort(orderNews).filter(n => n.idtiponoticia === 4 && n.destacada_diario === 0 && n.destacada_seccion === 0).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
               }
             </div>
 
@@ -124,10 +124,10 @@ const GetApiNoticias = () => {
              <Separator seccion= 'Deportes' id='sDeportes'/>
             <div className=" scroll-container d-flex justify-content-start">
                 {
-                  economy.filter(n => n.destacada_seccion === 1 && n.idtiponoticia === 5).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
+                  economy.filter(n => n.destacada_seccion === 1 && n.idtiponoticia === 5 && n.destacada_diario === 0).map(data => <CardMedium title={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
                 }
                 {
-                  sports.sort(orderNews).filter(n => n.idtiponoticia === 5).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
+                  sports.sort(orderNews).filter(n => n.idtiponoticia === 5 && n.destacada_diario === 0  && n.destacada_seccion === 0).map(data => <CardLittle title={data.titulo} text_p={data.resumen} img={data.urlImagen}/>)
                 }
             </div >
 
