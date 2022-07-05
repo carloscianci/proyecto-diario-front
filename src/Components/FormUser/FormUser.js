@@ -62,8 +62,8 @@ const FormUser = () => {
                       })}
             />
           
-            <div className="boton-registro justify-content-center">
-              <button type="submit" className='btn btn-primary texto-formulario'>Suscribirse</button>
+          <div className="boton-registro w-100 text-center">
+              <button type="submit" className='btn btn-primary texto-formulario w-50'>Suscribirse</button>
             </div>
         </form>
       </div>
