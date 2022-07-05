@@ -18,12 +18,10 @@ const GetApiNoticias = () => {
     const [politica, setPolitica] = useState([])
     const [poli, setPoli] = useState([])
 
-
     const url = process.env.REACT_APP_URL_API
   
     const getBack = async() => {
-        const  respApi = await axios.get(url + '/noticia')
-
+        const  respApi = await axios.get(`${url}/noticia`)
         
         setPolitica(respApi.data.listaNoticias)
         setSports(respApi.data.listaNoticias)
