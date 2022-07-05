@@ -44,6 +44,7 @@ const Footer = () => {
                             <Link className="bi bi-twitter me-2 fs-3" title="Twitter" to="twitter"></Link>
                             <Link className="bi bi-youtube me-2 fs-3" title="Youtube" to="youtube"></Link>
                             <Link className="bi bi-telegram me-2 fs-3" title="Telegram" to="telegram"></Link>
+                            
                         </div>
                     </div>
                 </div>
