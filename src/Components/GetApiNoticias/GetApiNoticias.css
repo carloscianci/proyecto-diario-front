@@ -13,11 +13,11 @@
   }
   
   .scroll-container::-webkit-scrollbar-track {
-    background: gainsboro;        /* color of the tracking area */
+    background: gainsboro;    
   }
   
   .scroll-container::-webkit-scrollbar-thumb {
-    background-color: gray;    /* color of the scroll thumb */
-    border-radius: 20px;       /* roundness of the scroll thumb */
-    border: 5px solid (gainsboro);  /* creates padding around scroll thumb */
+    background-color: gray;   
+    border-radius: 20px;      
+    border: 5px solid (gainsboro); 
   }
