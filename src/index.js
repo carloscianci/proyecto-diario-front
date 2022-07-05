@@ -16,12 +16,12 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
+        <Route path='*' element={<Error404 />} />
         <Route path='/' element={<App />}/>
         <Route path='/AdminNoticias' element={<AdminNoticias />}/>
         <Route path='/AdminSuscrip' element={<AdminSuscripciones />}/>
         <Route path='/AdminUsuarios' element={<AdminUsuarios />} />
         <Route path='/LoginAdmin' element={<Login />} />
-        <Route path='*' element={<Error404 />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
