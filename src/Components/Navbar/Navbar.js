@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './navbar.css'
 
@@ -28,7 +29,8 @@ const Navbar = () => {
                             <a className="nav-link fs-5" href="#sDeportes">Deportes </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link bi bi-person-circle fs-5" href="LoginAdmin"> </a>
+                            <Link className="nav-link bi bi-person-circle fs-5" to="LoginAdmin"> </Link>
+                            {/* <a className="nav-link bi bi-person-circle fs-5" href="LoginAdmin"> </a> */}
                         </li>
                     </ul>
                 </div>
