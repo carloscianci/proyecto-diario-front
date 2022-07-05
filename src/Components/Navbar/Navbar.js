@@ -30,7 +30,6 @@ const Navbar = () => {
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link bi bi-person-circle fs-5" to="LoginAdmin"> </Link>
-                            {/* <a className="nav-link bi bi-person-circle fs-5" href="LoginAdmin"> </a> */}
                         </li>
                     </ul>
                 </div>

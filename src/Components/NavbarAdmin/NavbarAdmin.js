@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './navbarAdmin.css'
 
@@ -13,16 +14,16 @@ const NavbarAdmin = () => {
                 <div className="collapse navbar-collapse color_navbar" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item active">
-                            <a className="nav-link fs-5" href="adminNoticias">Noticias </a>
+                            <Link className="nav-link fs-5" to="/adminNoticias">Noticias  </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link fs-5" href="adminSuscrip">Suscripciones </a>
+                            <Link className="nav-link fs-5" to="/adminSuscrip">Suscripciones  </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link fs-5" href="adminUsuarios">Usuarios </a>
+                            <Link className="nav-link fs-5" to="/adminUsuarios">Usuarios  </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link bi bi-box-arrow-left fs-5" href="/#"> </a>
+                            <Link className="nav-link bi bi-box-arrow-left fs-5" to="/"> </Link>
                         </li>
                     </ul>
                 </div>
