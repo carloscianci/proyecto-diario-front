@@ -7,7 +7,7 @@ const CardGiant = (props) => {
     return (
         <div className='card_style_giant container-fluid p-0' id={props.id}>
 
-            <div className="row">
+            <div className="row m_r ">
 
                 <div className="container_text col-12 col-xs-12 col-sm-12 col-md-5 col-xl-6 col-xxl-6">
 
@@ -21,7 +21,7 @@ const CardGiant = (props) => {
                 </div>
 
                 <div className='row card_img_c m-0 p-0 col-xs-12 col-12 col-sm-12 col-md-7 col-xl-6 col-xxl-6'>
-                    <img className='card_img' src={props.img} alt='imagen' id='img.id'></img>
+                    <img className='card_img p-0' src={props.img} alt='imagen' id='img.id'></img>
                 </div>
 
             </div>
