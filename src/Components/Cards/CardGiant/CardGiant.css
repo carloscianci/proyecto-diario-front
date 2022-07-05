@@ -11,6 +11,11 @@
 
 }
 
+.m_r{
+    margin-right: 0;
+}
+
+
 .card_title_c{
     background-color: #1363DF;
     border-radius: 5px;

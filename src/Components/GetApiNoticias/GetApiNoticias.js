@@ -55,9 +55,6 @@ const GetApiNoticias = () => {
   
 
     return ( 
-    
-      
-      
       <div className='container-fluid'>
         <div className="row">
 
@@ -65,7 +62,7 @@ const GetApiNoticias = () => {
                 economy.filter(n => n.destacada_diario === 1).map(data => <CardGiant  seccion={data.titulo} text_p={data.resumen} img={data.urlImagen} />)
               }
 
-          <div className="pag_news_style">
+          <div className="pag_news_style p-0">
 
 
                 {/* POLITICA */}
