@@ -43,7 +43,7 @@ const FormUser = () => {
                 })}
               />
             </div>
-            <div className='d-flex flex-column'>
+            <div className='d-flex flex-column mobile-margin-mail'>
               <label for='apellidoCompleto' className='form-label'>Apellido/s: </label>
               <input type='text' className='form-control items-pequeños mobile-width-input' id='apellidoCompleto' placeholder='Apellido completo' required 
                 {...register("apellido",{
