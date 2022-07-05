@@ -16,7 +16,7 @@ const AdminNoticias = () => {
     const [modalInsertar, setModalInsertar] = useState(false)
     const [seleccionado, setSeleccionado] = useState({
         _id: "",
-        idtiponoticia: 0,
+        idtiponoticia: 1,
         titulo: "",
         resumen: "",
         texto: "",
@@ -75,7 +75,7 @@ const AdminNoticias = () => {
             if (updateNoticia) {
                 if (updateNoticia.data.resultado) {
                     setModalEditar(false);
-                    window.location.reload()
+                    getNoticias()
                 } else {
                     alert(updateNoticia.data.message)
                 }
@@ -96,8 +96,8 @@ const AdminNoticias = () => {
 
             if (deleteNoticia) {
                 if (deleteNoticia.data.resultado) {
-                    setModalEditar(false);
-                    window.location.reload()
+                    setModalEliminar(false)
+                    getNoticias()
                 } else {
                     alert(deleteNoticia.data.message)
                 }
@@ -131,7 +131,7 @@ const AdminNoticias = () => {
             if (insertNoticia) {
                 if (insertNoticia.data.resultado) {
                     setModalInsertar(false);
-                    window.location.reload()
+                    getNoticias()
                 } else {
                     alert(insertNoticia.data.message)
                 }
