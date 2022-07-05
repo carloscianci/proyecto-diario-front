@@ -7,6 +7,7 @@ import './adminUsuarios.css'
 import NavbarAdmin from '../../Components/NavbarAdmin/NavbarAdmin';
 
 const AdminUsuarios = () => {
+    const url = process.env.REACT_APP_URL_API
 
     const [usuarios, setUsuarios] = useState([])
     const [modalEditar, setModalEditar] = useState(false)
@@ -21,8 +22,6 @@ const AdminUsuarios = () => {
         clave2: "",
         principal: 0
     });
-
-    const url = process.env.REACT_APP_URL_API
 
     const getUsuarios = async () => {
         const respUsuarios = await axios.post(url + '/usuario/listaUsuarios',{

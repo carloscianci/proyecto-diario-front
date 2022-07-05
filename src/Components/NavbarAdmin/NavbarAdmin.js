@@ -22,7 +22,7 @@ const NavbarAdmin = () => {
                             <a className="nav-link fs-5" href="adminUsuarios">Usuarios </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link bi bi-box-arrow-left fs-5" href="/#"></a>
+                            <a className="nav-link bi bi-box-arrow-left fs-5" href="/#"> </a>
                         </li>
                     </ul>
                 </div>

@@ -8,6 +8,8 @@ import NavbarAdmin from '../../Components/NavbarAdmin/NavbarAdmin';
 
 
 const AdminNoticias = () => {
+    const url = process.env.REACT_APP_URL_API;
+
     const [noticias, setNoticias] = useState([])
     const [modalEditar, setModalEditar] = useState(false)
     const [modalEliminar, setModalEliminar] = useState(false)
@@ -23,8 +25,6 @@ const AdminNoticias = () => {
         destacada_diario: 0
     });
 
-    const url = process.env.REACT_APP_URL_API
-    
     const getNoticias = async () => {
         const respNoticias = await axios.get(url + "/noticia")
 

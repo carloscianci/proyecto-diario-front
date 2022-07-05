@@ -7,6 +7,8 @@ import './adminSuscripciones.css'
 import NavbarAdmin from '../../Components/NavbarAdmin/NavbarAdmin';
 
 const AdminSuscripciones = () => {
+    const url = process.env.REACT_APP_URL_API
+    
     const [suscripciones, setSuscripciones] = useState([])
     const [modalEditar, setModalEditar] = useState(false)
     const [modalEliminar, setModalEliminar] = useState(false)
@@ -17,8 +19,6 @@ const AdminSuscripciones = () => {
         email: "",
         telefono: ""
     });
-
-    const url = process.env.REACT_APP_URL_API
     
     const getSuscripciones = async () => {
         const respSuscripciones = await axios.post(url + '/suscripcion/listaSuscripciones', {

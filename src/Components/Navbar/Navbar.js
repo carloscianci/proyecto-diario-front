@@ -28,7 +28,7 @@ const Navbar = () => {
                             <a className="nav-link fs-5" href="#sDeportes">Deportes </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link bi bi-person-circle fs-5" href="LoginAdmin"></a>
+                            <a className="nav-link bi bi-person-circle fs-5" href="LoginAdmin"> </a>
                         </li>
                     </ul>
                 </div>
