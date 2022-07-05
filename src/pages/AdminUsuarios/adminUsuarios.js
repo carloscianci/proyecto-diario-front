@@ -60,7 +60,8 @@ const AdminUsuarios = () => {
         return datoToken
     }
 
-    const editar = async() => {
+    const editar = async(e) => {
+        e.preventDefault()
         try {
             if(seleccionado.clave1 === seleccionado.clave2 && seleccionado.clave1.length > 0) {
                 const updateUsuario = await axios.put(url + '/usuario',{
@@ -117,7 +118,8 @@ const AdminUsuarios = () => {
         setModalInsertar(true)
     }
 
-    const insertar = async () => {
+    const insertar = async (e) => {
+        e.preventDefault()
         try {
             if(seleccionado.clave1 === seleccionado.clave2 && seleccionado.clave1.length > 0) {
                 const insertUsuario = await axios.post(url + '/usuario',{
@@ -180,7 +182,7 @@ const AdminUsuarios = () => {
                 </table>
                 
                 <Modal isOpen={modalEditar}>
-                    <form onSubmit={() => editar()}>
+                    <form onSubmit={editar}>
                         <ModalHeader>
                             <div>
                                 <h3>Editar Usuario</h3>
@@ -230,7 +232,7 @@ const AdminUsuarios = () => {
                 </Modal>
 
                 <Modal isOpen={modalInsertar}>
-                    <form onSubmit={()=>insertar()}>
+                    <form onSubmit={insertar}>
                         <ModalHeader>
                         <div>
                             <h3>Agregar Usuario</h3>
