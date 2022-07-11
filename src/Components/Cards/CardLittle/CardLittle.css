@@ -1,7 +1,7 @@
 .card_style_little {
     margin: 1rem;
     padding: 5px;
-    width: 16rem;
+    width: 15rem;
     height: 25rem;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
@@ -19,8 +19,9 @@
 .card_img_little {
     width: 12.5rem;
     height: 10rem;
-    margin: 1rem 1rem 1rem 1rem;
     border-radius: 5px;
+    margin: 10px;
+    background-size: cover;
 }
 
 
