@@ -11,8 +11,8 @@ const Navbar = () => {
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse color_navbar" id="navbarNav">
-                    <ul className="navbar-nav">
+                <div className="collapse navbar-collapse color_navbar ms-auto" id="navbarNav">
+                    <ul className="navbar-nav w-100">
                         <li className="nav-item active">
                             <a className="nav-link fs-5" href="#sPolitica">Política </a>
                         </li>
@@ -28,11 +28,10 @@ const Navbar = () => {
                         <li className="nav-item">
                             <a className="nav-link fs-5" href="#sDeportes">Deportes </a>
                         </li>
-                        
-                        <li className="nav-item">
-                            <Link className="nav-link bi bi-person-circle fs-5" to="LoginAdmin"> </Link>
-                        </li>
                     </ul>
+                    <a className="nav-item justify-content-end">
+                        <Link className="nav-link fa-solid fa-user-group color_icono fs-4 " title='Sección Administrador' to="LoginAdmin"> </Link>
+                    </a>
                 </div>
             </nav>
         </div>
