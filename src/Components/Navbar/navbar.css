@@ -5,3 +5,11 @@
 .alto_navbar {
     height: 70px;
 }
+
+.color_icono {
+    color: rgba(255,255,255,.55);
+}
+
+.color_icono:hover {
+    color: rgba(255,255,255,.85);
+}
