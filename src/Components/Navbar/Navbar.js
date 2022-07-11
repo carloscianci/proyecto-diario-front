@@ -30,7 +30,7 @@ const Navbar = () => {
                         </li>
                     </ul>
                     <a className="nav-item justify-content-end">
-                        <Link className="nav-link fa-solid fa-user-group color_icono fs-4 " title='Sección Administrador' to="LoginAdmin"> </Link>
+                        <Link className="nav-link fa-solid fa-user-group color_icono fs-3 " title='Sección Administrador' to="LoginAdmin"> </Link>
                     </a>
                 </div>
             </nav>
