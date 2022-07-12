@@ -14,10 +14,10 @@ const Error404 = () =>{
         </div>
         
         <div className='fuente-texto-error-mobile d-flex flex-column align-items-center'>
-          <h3 className='texto-mobile'>
+          <h3 className='texto-mobile text-center'>
             No se ha podido encontrar la página que está buscando.
           </h3>
-          <h3 className='texto-mobile'>
+          <h3 className='texto-mobile text-center'>
             Por favor, intente de nuevo más tarde.
           </h3>
         </div>
