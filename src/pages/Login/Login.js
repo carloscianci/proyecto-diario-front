@@ -63,8 +63,9 @@ const Login = () => {
                     </div>
                     <hr />
                     <div className="pie-form">
-                        <a href="#/">¿Perdiste tu contraseña?</a>
-                        <a href="#/">¿No tienes Cuenta? Registrate</a>
+                        <Link to="/recuperarPassword">¿Perdiste tu contraseña?</Link>
+                        <Link to="/registro">¿No tienes Cuenta? Registrate</Link>
+                        
                         <hr />
                         <Link to="/">« Volver </Link>       
                     </div>

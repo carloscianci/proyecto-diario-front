@@ -12,7 +12,7 @@ const NavbarAdmin = () => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse color_navbar" id="navbarNav">
-                    <ul className="navbar-nav">
+                    <ul className="navbar-nav w-100">
                         <li className="nav-item active">
                             <Link className="nav-link fs-5" to="/adminNoticias">Noticias  </Link>
                         </li>
@@ -22,10 +22,10 @@ const NavbarAdmin = () => {
                         <li className="nav-item">
                             <Link className="nav-link fs-5" to="/adminUsuarios">Usuarios  </Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link bi bi-box-arrow-left fs-5" to="/"> </Link>
-                        </li>
                     </ul>
+                    <a className="nav-item justify-content-end">
+                        <Link className="nav-link bi bi-box-arrow-right color_icono fs-3" to="/"> </Link>
+                    </a>
                 </div>
             </nav>
         </div>
