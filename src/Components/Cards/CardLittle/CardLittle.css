@@ -1,6 +1,5 @@
 .card_style_little {
     margin: 1rem;
-    padding: 5px;
     width: 15rem;
     height: 25rem;
     border-bottom-left-radius: 1rem;
@@ -30,16 +29,14 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: 100%;
     text-align: start;
-
     padding: 5px;
-    width: 100%;
+    margin: 0 10px 10px 10px;
     
     border-radius: 5px;
     background-color: #1363DF;
     color: white;
     text-align: center  ;
     align-items: center;
-    
 }
 
 
@@ -47,7 +44,7 @@
 .card_texto_little {
     font-size: 1rem;
     text-align: center;
-    margin-top: .5rem;
+    margin: 0 10px 10px 10px;
 }
 
 .text_redux {
