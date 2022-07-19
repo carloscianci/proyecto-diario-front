@@ -174,6 +174,7 @@ const AdminNoticias = () => {
             <div className='container-fluid'>
                 <h1>ADMINISTRADOR DE NOTICIAS</h1>
                 <button className='btn btn-success btnFixed bi bi-plus-lg' onClick={()=>abrirInsertar()}></button>
+                <div class="table-responsive">
                 <table className='table'>
                     <thead>
                         <tr>
@@ -193,11 +194,11 @@ const AdminNoticias = () => {
                                 <tr>
                                     <td>{elemento._id}</td>
                                     <td>{traduceNoticia(elemento.idtiponoticia)}</td>
-                                    <td>{elemento.titulo}</td>
-                                    <td>{elemento.resumen}</td>
-                                    <td>{elemento.urlImagen}</td>
-                                    <td>{elemento.destacada_seccion === 1 ? "SI" : ""}</td>
-                                    <td>{elemento.destacada_diario  === 1 ? "SI" : ""}</td>
+                                    <td> <div className='limite_fila'>{elemento.titulo} </div> </td>
+                                    <td> <div className='limite_fila'>{elemento.resumen} </div> </td>
+                                    <td> <div className='imagen_grilla_contenedor'> <img className='imagen_grilla' src={elemento.urlImagen} alt={elemento._id} /> </div> </td>
+                                    <td className='text-center'>{elemento.destacada_seccion === 1 ? <i class="bi bi-star text-warning fs-3"></i> : ""}</td>
+                                    <td className='text-center'>{elemento.destacada_diario  === 1 ? <i class="bi bi-star text-warning fs-3"></i> : ""}</td>
                                     <td>
                                         <button className="btn btn-primary mx-1 bi bi-pencil" onClick={()=>seleccionarNoticia(elemento, 'Editar')}></button>
                                         <button className="btn btn-danger mx-1 bi bi-trash" onClick={()=>seleccionarNoticia(elemento, 'Eliminar')}></button>
@@ -207,7 +208,7 @@ const AdminNoticias = () => {
                         }
                     </tbody>
                 </table>
-                
+                </div>
                 <Modal isOpen={modalEditar}>
                     <form onSubmit={editar}>
                         <ModalHeader>

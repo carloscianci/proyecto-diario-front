@@ -21,17 +21,13 @@
 }
 .form-container{
   height: 300px;
-  width: 100%;
 }
 .item-registro{
   padding: 0px;
   margin: 10px;
   height: 55px;
-  width: 400px;
 }
-.items-pequeños{
-  width: 195px;
-}
+
 .texto-formulario{
   font-family: 'Times New Roman', Times, serif;
   font-size: medium;
@@ -82,13 +78,14 @@
   .mobile-width-input{
     width: 345px;
   }
+  .ancho_form {
+    width: 50%;
+  }
+}
 
-  .mobile-responsive-formulario-titulos{
-    height: 170px;
-    width: 370px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+@media (max-width:767px)
+{
+  .ancho_form {
+    width: 80%;
   }
 }

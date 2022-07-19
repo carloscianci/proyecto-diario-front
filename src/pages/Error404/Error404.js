@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './error404.css';
 // import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Error404 = () =>{
   return(
@@ -13,16 +14,16 @@ const Error404 = () =>{
         </div>
         
         <div className='fuente-texto-error-mobile d-flex flex-column align-items-center'>
-          <h3 className='texto-mobile'>
+          <h3 className='texto-mobile text-center'>
             No se ha podido encontrar la página que está buscando.
           </h3>
-          <h3 className='texto-mobile'>
+          <h3 className='texto-mobile text-center'>
             Por favor, intente de nuevo más tarde.
           </h3>
         </div>
 
         <div className="boton-retornar-principal">
-          <a className='btn btn-primary' href="/#">Volver a página principal</a>
+          <Link className="btn btn-primary" to="/">Volver a la página principal</Link>
         </div>
 
       </section>

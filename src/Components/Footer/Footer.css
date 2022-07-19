@@ -84,5 +84,8 @@
   {
     text-align:center
   }
+  .oculta_hr {
+    display: none;
+  }
 }
 
