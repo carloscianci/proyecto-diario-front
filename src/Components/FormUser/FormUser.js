@@ -9,6 +9,10 @@ const FormUser = () => {
   const url = process.env.REACT_APP_URL_API
   const { register, handleSubmit } = useForm()
 
+  document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("formulario").addEventListener('submit', validarFormulario); 
+  });
+
   const postFormUser = async(dataForm, e) => {
     const resultsFU = await axios.post(`${url}/suscripcion`,{
       "nombre" : dataForm.nombre,
@@ -23,6 +27,22 @@ const FormUser = () => {
       alert(resultsFU.data.message)
       e.target.reset()
     }
+  }
+
+  
+  
+  const validarFormulario = (dataForm) => {
+    const usuario = document.getElementById('email').value;
+    if(usuario.length === 18) {
+      alert('El correo electronico es muy largo');
+      return;
+    }
+    const clave = document.getElementById('numeroTel').value;
+    if (clave.length != 10) {
+      alert('El numero de celular no es válido');
+      return;
+    }
+    this.submit();
   }
 
   return (
@@ -57,7 +77,7 @@ const FormUser = () => {
             />
           
             <label for='numeroTel' className='form-label mt-1'>Celular: </label>
-            <input type='text' className='form-control items-pequeños' id='numeroTel' placeholder='N° de telefono' required {...register("telefono", {
+            <input type='text' className='form-control items-pequeños' id='numeroTel' maxLength='10' placeholder='N° de telefono' required {...register("telefono", {
                         pattern:/^(?:(?:00)?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/g
                       })}
             />
