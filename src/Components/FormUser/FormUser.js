@@ -38,7 +38,7 @@ const FormUser = () => {
       return;
     }
     const clave = document.getElementById('numeroTel').value;
-    if (clave.length != 10) {
+    if (clave.length !== 10) {
       alert('El numero de celular no es válido');
       return;
     }
