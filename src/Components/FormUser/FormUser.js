@@ -9,9 +9,9 @@ const FormUser = () => {
   const url = process.env.REACT_APP_URL_API
   const { register, handleSubmit } = useForm()
 
-  document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("formulario").addEventListener('submit', validarFormulario); 
-  });
+  // document.addEventListener("DOMContentLoaded", function() {
+  //   document.getElementById("formulario").addEventListener('submit', validarFormulario); 
+  // });
 
   const postFormUser = async(dataForm, e) => {
     const resultsFU = await axios.post(`${url}/suscripcion`,{
@@ -31,24 +31,24 @@ const FormUser = () => {
 
   
   
-  const validarFormulario = (regexp, dataForm) => {
-    const correoUser = document.getElementById('email').value;
-    let regexMail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-    if(regexMail.test(correoUser)) {
-      console.log("el mail esta completo");
-    }else{
-      alert("el mail esta incompleto")
-      return;
-    }
-    const numTel = document.getElementById('numeroTel');
-    let regexTel = /^(?:(?:00)?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/;
-    if (regexTel.test(numTel)) {
-      console.log('El numero de celular corresponde.');
-      return;
-    }else{
-      alert('El numero de celular es corto o hay caracteres que no corresponden.');
-    }
-  }
+  // const validarFormulario = (regexp, dataForm) => {
+  //   const correoUser = document.getElementById('email').value;
+  //   let regexMail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+  //   if(regexMail.test(correoUser)) {
+  //     console.log("el mail esta completo");
+  //   }else{
+  //     alert("el mail esta incompleto")
+  //     return;
+  //   }
+  //   const numTel = document.getElementById('numeroTel');
+  //   let regexTel = /^(?:(?:00)?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/;
+  //   if (regexTel.test(numTel)) {
+  //     console.log('El numero de celular corresponde.');
+  //     return;
+  //   }else{
+  //     alert('El numero de celular es corto o hay caracteres que no corresponden.');
+  //   }
+  // }
 
   return (
     <div className="container-fluid">
@@ -76,19 +76,19 @@ const FormUser = () => {
           
           
             <label for='email' className='form-label mt-1'>E-mail: </label>
-            <input type='email' className='form-control' id='email' placeholder='correoelectronico@gmail.com' required {...register("email", {
+            <input type='email' title="el mail debe incluir su extension .com o la correspondiente." className='form-control' id='email' placeholder='correoelectronico@gmail.com' required {...register("email", {
                         pattern:/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
-                      }, "El correo electronico es muy largo o esta faltando su correspondiente extension como .com")}
+                      },)}
             />
           
             <label for='numeroTel' className='form-label mt-1'>Celular: </label>
-            <input type='text' className='form-control items-pequeños' id='numeroTel' maxLength='10' placeholder='N° de telefono' required {...register("telefono", {
+            <input type='text' maxLength="10" minLength="10" className='form-control items-pequeños' id='numeroTel' placeholder='N° de telefono' required {...register("telefono", {
                         pattern:/^(?:(?:00)?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/g
                       })}
             />
           
           <div className="boton-registro w-100 text-center">
-              <button type="submit" onSubmit={handleSubmit(validarFormulario)} className='btn btn-primary texto-formulario w-50'>Suscribirse</button>
+              <button type="submit" className='btn btn-primary texto-formulario w-50'>Suscribirse</button>
             </div>
         </form>
       </div>
