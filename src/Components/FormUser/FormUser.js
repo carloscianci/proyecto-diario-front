@@ -31,18 +31,23 @@ const FormUser = () => {
 
   
   
-  const validarFormulario = (dataForm) => {
-    const usuario = document.getElementById('email').value;
-    if(usuario.length === 18) {
-      alert('El correo electronico es muy largo');
+  const validarFormulario = (regexp, dataForm) => {
+    const correoUser = document.getElementById('email').value;
+    let regexMail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+    if(regexMail.test(correoUser)) {
+      console.log("el mail esta completo");
+    }else{
+      alert("el mail esta incompleto")
       return;
     }
-    const clave = document.getElementById('numeroTel').value;
-    if (clave.length !== 10) {
-      alert('El numero de celular no es válido');
+    const numTel = document.getElementById('numeroTel');
+    let regexTel = /^(?:(?:00)?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/;
+    if (regexTel.test(numTel)) {
+      console.log('El numero de celular corresponde.');
       return;
+    }else{
+      alert('El numero de celular es corto o hay caracteres que no corresponden.');
     }
-    this.submit();
   }
 
   return (
@@ -73,7 +78,7 @@ const FormUser = () => {
             <label for='email' className='form-label mt-1'>E-mail: </label>
             <input type='email' className='form-control' id='email' placeholder='correoelectronico@gmail.com' required {...register("email", {
                         pattern:/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
-                      })}
+                      }, "El correo electronico es muy largo o esta faltando su correspondiente extension como .com")}
             />
           
             <label for='numeroTel' className='form-label mt-1'>Celular: </label>
@@ -83,7 +88,7 @@ const FormUser = () => {
             />
           
           <div className="boton-registro w-100 text-center">
-              <button type="submit" className='btn btn-primary texto-formulario w-50'>Suscribirse</button>
+              <button type="submit" onSubmit={handleSubmit(validarFormulario)} className='btn btn-primary texto-formulario w-50'>Suscribirse</button>
             </div>
         </form>
       </div>
