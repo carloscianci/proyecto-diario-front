@@ -82,7 +82,7 @@ const FormUser = () => {
             />
           
             <label for='numeroTel' className='form-label mt-1'>Celular: </label>
-            <input type='text' maxLength="10" minLength="10" className='form-control items-pequeños' id='numeroTel' placeholder='N° de telefono' required {...register("telefono", {
+            <input type='text' title="solo se admiten numeros" maxLength="10" minLength="10" className='form-control items-pequeños' id='numeroTel' placeholder='N° de telefono' required {...register("telefono", {
                         pattern:/^(?:(?:00)?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/g
                       })}
             />
