@@ -7,7 +7,7 @@
   color: black;
 }
 .espacio-titulos{
-  padding: 15px 1px 1px 1px;
+  padding: 1px 1px 1px 1px;
 }
 .padding-items{
   padding: 15px 1px 1px 1px;
@@ -36,13 +36,51 @@
   padding: 5px;
   margin: 10px;
   height: 50px;
-  width: 110px;
+  width: 100%;
   border: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
-
-.ancho_form {
-  width: 50%;
+.boton-contenido{
+  width: 100px;
+  height: 40px;
+}
+.margin-separador-formulario{
+  margin: 0;
+}
+@media screen and (max-width: 414px) {  
+  .mobile-responsive-formulario{
+    padding: 0px;
+    margin: 0px;
+    height: 360px;
+    width: 100%;
+  }
+  .mobile-items-pequeños{
+    width: 345px;
+    display: flex;
+    padding: 1px 1px 1px 1px;
+    flex-direction: column;
+    align-items: start;
+    height: 145px;
+    margin: 3px;
+  }
+  .mobile-ap-nom{
+    display: flex;
+    flex-direction: column;
+    height: 195px;
+    margin: 5px;
+  }
+  .mobile-width-form-items{
+    width: 100%;
+  }
+  .mobile-margin-mail{
+    margin: 8px 1px 1px 1px;
+  }
+  .mobile-width-input{
+    width: 345px;
+  }
+  .ancho_form {
+    width: 50%;
+  }
 }
 
 @media (max-width:767px)

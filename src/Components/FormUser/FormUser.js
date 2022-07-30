@@ -9,6 +9,10 @@ const FormUser = () => {
   const url = process.env.REACT_APP_URL_API
   const { register, handleSubmit } = useForm()
 
+  // document.addEventListener("DOMContentLoaded", function() {
+  //   document.getElementById("formulario").addEventListener('submit', validarFormulario); 
+  // });
+
   const postFormUser = async(dataForm, e) => {
     const resultsFU = await axios.post(`${url}/suscripcion`,{
       "nombre" : dataForm.nombre,
@@ -24,6 +28,27 @@ const FormUser = () => {
       e.target.reset()
     }
   }
+
+  
+  
+  // const validarFormulario = (regexp, dataForm) => {
+  //   const correoUser = document.getElementById('email').value;
+  //   let regexMail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+  //   if(regexMail.test(correoUser)) {
+  //     console.log("el mail esta completo");
+  //   }else{
+  //     alert("el mail esta incompleto")
+  //     return;
+  //   }
+  //   const numTel = document.getElementById('numeroTel');
+  //   let regexTel = /^(?:(?:00)?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/;
+  //   if (regexTel.test(numTel)) {
+  //     console.log('El numero de celular corresponde.');
+  //     return;
+  //   }else{
+  //     alert('El numero de celular es corto o hay caracteres que no corresponden.');
+  //   }
+  // }
 
   return (
     <div className="container-fluid">
@@ -44,21 +69,21 @@ const FormUser = () => {
               <label for='apellidoCompleto' className='form-label mt-1'>Apellido/s: </label>
               <input type='text' className='form-control' id='apellidoCompleto' placeholder='Apellido completo' required 
                 {...register("apellido",{
-                  pattern:/[a-zA-Z]+/gm
+                  pattern:/^[a-z ,.'-]+$/i
                 })}
               />
            
           
           
             <label for='email' className='form-label mt-1'>E-mail: </label>
-            <input type='email' className='form-control' id='email' placeholder='correoelectronico@gmail.com' required {...register("email", {
+            <input type='email' title="el mail debe incluir su extension .com o la correspondiente." className='form-control' id='email' placeholder='correoelectronico@gmail.com' required {...register("email", {
                         pattern:/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
-                      })}
+                      },)}
             />
           
             <label for='numeroTel' className='form-label mt-1'>Celular: </label>
-            <input type='text' className='form-control items-pequeños' id='numeroTel' placeholder='N° de telefono' required {...register("telefono", {
-                        pattern:/[0-9]+/g
+            <input type='text' title="solo se admiten numeros" maxLength="10" minLength="10" className='form-control items-pequeños' id='numeroTel' placeholder='N° de telefono' required {...register("telefono", {
+                        pattern:/^(?:(?:00)?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/g
                       })}
             />
           
